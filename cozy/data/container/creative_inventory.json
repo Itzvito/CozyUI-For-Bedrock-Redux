@@ -1,0 +1,1951 @@
+{
+  "namespace": "cozy_screen:creative_inventory",
+
+  "screen_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "layer": 10,
+    "controls": [
+      {
+        "screen_panel": {
+          "type": "stack_panel",
+          "size": ["100.0%cm", "100.0%c"],
+          "controls": [
+            {
+              "tab_toggle_panel0": {
+                "type": "input_panel",
+                "size": ["100.0%sm", "100.0%cm"],
+                "controls": [
+                  {
+                    "tab_panel": {
+                      "type": "stack_panel",
+                      "orientation": "horizontal",
+                      "size": ["100.0%", "100.0%cm"],
+                      "offset": [0.0, "13.0%"],
+                      "anchor_from": "bottom_middle",
+                      "anchor_to": "bottom_middle",
+                      "controls": [
+                        {
+                          "padding0": {
+                            "type": "panel",
+                            "size": ["1.0px", 0.0]
+                          }
+                        },
+                        {
+                          "construction_tab@cozy_screen:creative_inventory.tab_toggle": {
+                            "$anchor0": "top_left",
+                            "$tab_icon": "cozy_screen:creative_inventory.construction_icon",
+                            "$tab_view_binding_name": "construction_tab_toggle",
+                            "$toggle_group_forced_index": "$construction_index",
+                            "$toggle_state_binding_name": "#is_left_tab_construct"
+                          }
+                        },
+                        {
+                          "equipment_tab@cozy_screen:creative_inventory.tab_toggle": {
+                            "$anchor0": "top_middle",
+                            "$tab_icon": "cozy_screen:creative_inventory.equipment_icon",
+                            "$tab_view_binding_name": "equipment_tab_toggle",
+                            "$toggle_group_forced_index": "$equipment_index",
+                            "$toggle_state_binding_name": "#is_left_tab_equipment"
+                          }
+                        },
+                        {
+                          "items_tab@cozy_screen:creative_inventory.tab_toggle": {
+                            "$anchor0": "top_middle",
+                            "$tab_icon": "cozy_screen:creative_inventory.miscellaneous_icon",
+                            "$tab_view_binding_name": "items_tab_toggle",
+                            "$toggle_group_forced_index": "$items_index",
+                            "$toggle_state_binding_name": "#is_left_tab_items"
+                          }
+                        },
+                        {
+                          "nature_tab@cozy_screen:creative_inventory.tab_toggle": {
+                            "$anchor0": "top_middle",
+                            "$tab_icon": "cozy_screen:creative_inventory.nature_icon",
+                            "$tab_view_binding_name": "nature_tab_toggle",
+                            "$toggle_group_forced_index": "$nature_index",
+                            "$toggle_state_binding_name": "#is_left_tab_nature"
+                          }
+                        },
+                        {
+                          "padding1": {
+                            "type": "panel",
+                            "size": ["fill", 0.0]
+                          }
+                        },
+                        {
+                          "search_tab@cozy_screen:creative_inventory.tab_toggle": {
+                            "$anchor0": "top_right",
+                            "$tab_icon": "cozy_screen:creative_inventory.search_icon",
+                            "$toggle_view_binding_name": "cozy_screen:creative_inventory.search_tab_toggle",
+                            "$tab_view_binding_name": "search_tab_toggle",
+                            "$toggle_group_forced_index": "$search_index",
+                            "$toggle_state_binding_name": "#is_left_tab_search"
+                          }
+                        },
+                        {
+                          "padding2": {
+                            "type": "panel",
+                            "size": ["1.0px", 0.0]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "tab_content@cozy_common:container.screen_base": {
+                "$size": [197.0, 136.0],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "container_exit_button@cozy_common:container.container_exit_button": {}
+                  },
+                  {
+                    "tab_inventory_panel": {
+                      "type": "panel",
+                      "size": ["100.0%", "100.0%"],
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "cozy_screen:creative_inventory.survival_tab_toggle",
+                          "source_property_name": "#toggle_state",
+                          "target_property_name": "#visible"
+                        }
+                      ],
+                      "controls": [
+                        {
+                          "inventory_top_half_panel": {
+                            "type": "panel",
+                            "layer": 2,
+                            "size": ["100.0%", "40.0%"],
+                            "anchor_from": "top_middle",
+                            "anchor_to": "top_middle",
+                            "controls": [
+                              {
+                                "player_renderer_panel": {
+                                  "type": "panel",
+                                  "offset": ["-4.521294%", "-0.0916%"],
+                                  "size": ["17.3359%", "82.84676%"],
+                                  "controls": [
+                                    {
+                                      "renderer": {
+                                        "type": "panel",
+                                        "size": ["60.0%", "60.0%"],
+                                        "anchor_from": "bottom_middle",
+                                        "anchor_to": "bottom_middle",
+                                        "controls": [
+                                          {
+                                            "renderer": {
+                                              "type": "custom",
+                                              "renderer": "live_player_renderer",
+                                              "anchor_from": "bottom_middle",
+                                              "anchor_to": "bottom_middle",
+                                              "offset": [0.0, "-70.0%"],
+                                              "property_bag": {
+                                                "#look_at_cursor": true
+                                              },
+                                              "anims": [
+                                                "@common.screen_exit_size_animation_push",
+                                                "@common.screen_exit_size_animation_pop",
+                                                "@common.screen_entrance_size_animation_push",
+                                                "@common.screen_entrance_size_animation_pop"
+                                              ],
+                                              "animation_reset_name": "screen_animation_reset"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "armor_panel": {
+                                        "type": "stack_panel",
+                                        "size": ["212.1%", "100.0%"],
+                                        "controls": [
+                                          {
+                                            "left_panel": {
+                                              "type": "stack_panel",
+                                              "orientation": "horizontal",
+                                              "size": ["100.0%", "100.0%cm"],
+                                              "collection_name": "$item_collection_name",
+                                              "$item_collection_name": "armor_items",
+                                              "controls": [
+                                                {
+                                                  "head_item@cozy_common:container.container_item": {
+                                                    "collection_index": 0,
+                                                    "$button_ref": "cozy_common:container.no_coalesce_container_slot_button"
+                                                  }
+                                                },
+                                                {
+                                                  "padding": {
+                                                    "type": "panel",
+                                                    "size": ["fill", "100.0%sm"]
+                                                  }
+                                                },
+                                                {
+                                                  "chest_item@cozy_common:container.container_item": {
+                                                    "collection_index": 1,
+                                                    "$button_ref": "cozy_common:container.no_coalesce_container_slot_button"
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "padding": {
+                                              "type": "panel",
+                                              "size": ["100.0%", "fill"]
+                                            }
+                                          },
+                                          {
+                                            "right_panel": {
+                                              "type": "stack_panel",
+                                              "orientation": "horizontal",
+                                              "size": ["100.0%", "100.0%cm"],
+                                              "collection_name": "$item_collection_name",
+                                              "$item_collection_name": "armor_items",
+                                              "controls": [
+                                                {
+                                                  "legs_item@cozy_common:container.container_item": {
+                                                    "collection_index": 2,
+                                                    "$button_ref": "cozy_common:container.no_coalesce_container_slot_button"
+                                                  }
+                                                },
+                                                {
+                                                  "padding": {
+                                                    "type": "panel",
+                                                    "size": ["fill", "100.0%sm"]
+                                                  }
+                                                },
+                                                {
+                                                  "feet_item@cozy_common:container.container_item": {
+                                                    "collection_index": 3,
+                                                    "$button_ref": "cozy_common:container.no_coalesce_container_slot_button"
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "offhand_panel": {
+                                        "type": "collection_panel",
+                                        "size": ["100.0%c", "100.0%c"],
+                                        "offset": ["-110.0%c", 0.0],
+                                        "anchor_from": "left_middle",
+                                        "anchor_to": "left_middle",
+                                        "collection_name": "$item_collection_name",
+                                        "$item_collection_name": "offhand_items",
+                                        "controls": [
+                                          {
+                                            "offhand_item@cozy_common:container.container_item": {
+                                              "offset": ["-100.0%", 0.0],
+                                              "collection_index": 0,
+                                              "$button_ref": "cozy_common:container.no_coalesce_container_slot_button"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "hotbar_inventory_content@cozy_common:container.hotbar_inventory_content": {
+                            "offset": ["-4.791294%x", "-4.791294%x"]
+                          }
+                        },
+                        {
+                          "destroy_button@common.button": {
+                            "layer": 2,
+                            "size": ["18.0px", "18.0px"],
+                            "offset": ["-2.395647% - 0.5px", "-4.791294%"],
+                            "sound_name": "$cozy_button_sound_name",
+                            "sound_volume": "$cozy_button_sound_volume",
+                            "sound_pitch": 1.0,
+                            "anchor_from": "bottom_right",
+                            "anchor_to": "bottom_right",
+                            "$pressed_button_name": "button.destroy_selection",
+                            "button_mappings": [
+                              {
+                                "from_button_id": "button.menu_select",
+                                "to_button_id": "$pressed_button_name",
+                                "mapping_type": "pressed"
+                              },
+                              {
+                                "from_button_id": "button.menu_ok",
+                                "to_button_id": "$pressed_button_name",
+                                "mapping_type": "pressed"
+                              }
+                            ],
+                            "controls": [
+                              {
+                                "pressed": {
+                                  "type": "image",
+                                  "anchor_from": "center",
+                                  "anchor_to": "center",
+                                  "layer": 5,
+                                  "texture": "cozy/icon/selected_highlight",
+                                  "size": ["100.0% + 7.0px", "100.0% + 7.0px"]
+                                }
+                              },
+                              {
+                                "hover": {
+                                  "type": "image",
+                                  "anchor_from": "center",
+                                  "anchor_to": "center",
+                                  "layer": 5,
+                                  "texture": "cozy/icon/selected_highlight",
+                                  "size": ["100.0% + 7.0px", "100.0% + 7.0px"]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "tab_inventory_background": {
+                            "type": "image",
+                            "layer": 0,
+                            "size": ["100.0%", "100.0%"],
+                            "texture": "cozy/gui/creative_inventory/tab_inventory"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "tab_items_scroll_panel": {
+                      "type": "panel",
+                      "size": ["100.0%", "100.0%"],
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "cozy_screen:creative_inventory.survival_tab_toggle",
+                          "source_property_name": "(not #toggle_state)",
+                          "target_property_name": "#visible"
+                        }
+                      ],
+                      "controls": [
+                        {
+                          "item_tab_page_panel": {
+                            "type": "panel",
+                            "layer": 3,
+                            "size": ["82.423350253807%", "94.0%"],
+                            "offset": ["-4.621294%", 0.0],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "controls": [
+                              {
+                                "content": {
+                                  "type": "stack_panel",
+                                  "orientation": "vertical",
+                                  "size": ["100.0%", "100.0%"],
+                                  "controls": [
+                                    {
+                                      "search_panel": {
+                                        "type": "stack_panel",
+                                        "orientation": "horizontal",
+                                        "size": ["100.0%", "100.0%cm"],
+                                        "controls": [
+                                          {
+                                            "padding0": {
+                                              "type": "panel",
+                                              "size": ["fill", 0.0]
+                                            }
+                                          },
+                                          {
+                                            "text_edit_control@common.text_edit_box": {
+                                              "$size": ["90.0px", "12.0px"],
+                                              "size": "$size",
+                                              "property_bag": {
+                                                "#property_field": "#item_name"
+                                              },
+                                              "anims": [
+                                                "@cozy_animations:container.container_animation_size_exit_push",
+                                                "@cozy_animations:container.container_animation_size_exit_pop",
+                                                "@cozy_animations:container.container_animation_size_enter_pop",
+                                                "@cozy_animations:container.container_animation_size_enter_push"
+                                              ],
+                                              "animation_reset_name": "screen_animation_reset",
+                                              "max_length": 1000,
+                                              "$place_holder_control": "cozy_common:container.text_edit_box_place_holder_label",
+                                              "$text_background_default": "common.empty_panel",
+                                              "$text_background_hover": "common.empty_panel",
+                                              "$text_edit_binding_name": "#text_box_item_name",
+                                              "$text_edit_box_label_size": ["default", 10.0],
+                                              "$text_edit_box_label_offset": [0.0, 0.0],
+                                              "$text_edit_box_hovered_button_id": "button.search_bar_hovered",
+                                              "$text_edit_box_clear_to_button_id": "button.search_bar_clear",
+                                              "$text_edit_box_selected_to_button_id": "button.search_bar_selected",
+                                              "$text_edit_box_deselected_to_button_id": "button.search_bar_deselected",
+                                              "$text_clear_button_enabled": false,
+                                              "$magnifying_glass_enabled": false,
+                                              "focus_wrap_enabled": false,
+                                              "bindings": [
+                                                {
+                                                  "binding_type": "global",
+                                                  "binding_name": "#is_left_tab_search",
+                                                  "binding_name_override": "#visible"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          {
+                                            "padding1": {
+                                              "type": "panel",
+                                              "$size": ["90.0px", "12.0px"],
+                                              "size": "$size",
+                                              "anims": [
+                                                "@cozy_animations:container.container_animation_size_exit_push",
+                                                "@cozy_animations:container.container_animation_size_exit_pop",
+                                                "@cozy_animations:container.container_animation_size_enter_pop",
+                                                "@cozy_animations:container.container_animation_size_enter_push"
+                                              ],
+                                              "animation_reset_name": "screen_animation_reset",
+                                              "bindings": [
+                                                {
+                                                  "binding_type": "global",
+                                                  "binding_name": "(not #is_left_tab_search)",
+                                                  "binding_name_override": "#visible"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "padding": {
+                                        "type": "panel",
+                                        "size": [0.0, 1.5]
+                                      }
+                                    },
+                                    {
+                                      "item_scroll_panel@common.root_panel": {
+                                        "layer": 2,
+                                        "size": ["100.0%", "69.61827284105%"],
+                                        "controls": [
+                                          /*{
+                                                                                      "destroy_button@common.button": {
+                                                                                        "layer": 3,
+                                                                                        "size": ["100.0%", "100.0%"],
+                                                                                        "consume_event": false,
+                                                                                        "consume_hover_events": false,
+                                                                                        "$pressed_button_name": "button.destroy_selection",
+                                                                                        "button_mappings": [
+                                                                                          {
+                                                                                            "from_button_id": "button.menu_select",
+                                                                                            "to_button_id": "$pressed_button_name",
+                                                                                            "mapping_type": "pressed"
+                                                                                          },
+                                                                                          {
+                                                                                            "from_button_id": "button.menu_ok",
+                                                                                            "to_button_id": "$pressed_button_name",
+                                                                                            "mapping_type": "pressed"
+                                                                                          }
+                                                                                        ]
+                                                                                      }
+                                                                                    },*/
+                                          {
+                                            "scroll@cozy_common:container.container_scrolling_panel": {
+                                              "layer": 5,
+                                              "offset": ["10.5%", 0.0],
+                                              "size": ["120.0%", "100.0%"],
+                                              "$scrolling_track_offset": ["-4.0px", 0.0],
+                                              "$scrolling_view_content_size": ["162.0px", "88.0px"],
+                                              "$scroll_box_textures": "cozy/sprites/inventory/scrollbar_box",
+                                              "$scrolling_content": "cozy_screen:creative_inventory.scroll_grid_panel",
+                                              "$collection_name": "recipe_book",
+                                              "button_mappings": [
+                                                {
+                                                  "from_button_id": "button.menu_select",
+                                                  "to_button_id": "button.scrollbar_touch",
+                                                  "mapping_type": "pressed",
+                                                  "button_up_right_of_first_refusal": true
+                                                },
+                                                {
+                                                  "from_button_id": "button.menu_select",
+                                                  "to_button_id": "button.destroy_selection",
+                                                  "mapping_type": "pressed"
+                                                },
+                                                {
+                                                  "from_button_id": "button.menu_secondary_select",
+                                                  "to_button_id": "button.container_reset_held",
+                                                  "mapping_type": "pressed"
+                                                },
+                                                {
+                                                  "from_button_id": "button.menu_ok",
+                                                  "to_button_id": "button.destroy_selection",
+                                                  "mapping_type": "pressed"
+                                                },
+                                                {
+                                                  "from_button_id": "button.controller_back",
+                                                  "to_button_id": "button.destroy_selection",
+                                                  "mapping_type": "pressed",
+                                                  "ignored": "(not $is_ps4)"
+                                                },
+                                                {
+                                                  "from_button_id": "button.controller_select",
+                                                  "to_button_id": "button.clear_hotbar_or_remove_one",
+                                                  "mapping_type": "pressed"
+                                                },
+                                                {
+                                                  "from_button_id": "button.controller_secondary_select",
+                                                  "to_button_id": "button.container_reset_held",
+                                                  "mapping_type": "pressed"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "creative_label": {
+                            "type": "label",
+                            "size": ["100.0%", 10.0],
+                            "anchor_from": "top_left",
+                            "anchor_to": "top_left",
+                            "text_alignment": "left",
+                            "color": "$title_text_color",
+                            "layer": 2,
+                            "text": "#tab_label_text",
+                            "offset": ["4.791294%", "4.791294%"],
+                            "bindings": [
+                              {
+                                "binding_name": "#tab_label_text"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "tab_search_item_background": {
+                            "type": "image",
+                            "layer": 0,
+                            "size": ["100.0%", "100.0%"],
+                            "texture": "cozy/gui/creative_inventory/tab_search_item",
+                            "bindings": [
+                              {
+                                "binding_type": "global",
+                                "binding_name": "#is_left_tab_search",
+                                "binding_name_override": "#visible"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "tab_items_background": {
+                            "type": "image",
+                            "layer": 0,
+                            "size": ["100.0%", "100.0%"],
+                            "texture": "cozy/gui/creative_inventory/tab_items",
+                            "bindings": [
+                              {
+                                "binding_type": "global",
+                                "binding_name": "(not #is_left_tab_search)",
+                                "binding_name_override": "#visible"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "hotbar_grid_panel@cozy_common:container.hotbar_gird_panel": {
+                            "offset": ["-4.791294%x", "-4.791294%x"],
+                            "anchor_from": "bottom_middle",
+                            "anchor_to": "bottom_middle"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "no_bg_inventory_utils_content@cozy_common:container.no_bg_inventory_utils_content": {}
+                  }
+                ]
+              }
+            },
+            {
+              "tab_toggle_panel1": {
+                "type": "input_panel",
+                "size": ["100.0%sm", "100.0%cm"],
+                "controls": [
+                  {
+                    "tab_panel": {
+                      "type": "stack_panel",
+                      "orientation": "horizontal",
+                      "size": ["100.0%", "100.0%cm"],
+                      "offset": [0.0, "-13.0%"],
+                      "anchor_from": "bottom_middle",
+                      "anchor_to": "bottom_middle",
+                      "controls": [
+                        {
+                          "padding0": {
+                            "type": "panel",
+                            "size": ["fill", 0.0]
+                          }
+                        },
+                        {
+                          "survival@cozy_screen:creative_inventory.tab_toggle": {
+                            "$anchor0": "bottom_right",
+                            "$tab_icon": "cozy_screen:creative_inventory.inventory_icon",
+                            "$toggle_view_binding_name": "cozy_screen:creative_inventory.survival_tab_toggle",
+                            "$toggle_group_forced_index": 8
+                          }
+                        },
+                        {
+                          "padding2": {
+                            "type": "panel",
+                            "size": ["1.0px", 0.0]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "selected_item_details_factory@cozy_common:container.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      }
+    ]
+  },
+
+  "tab_toggle@cozy_screen:creative_inventory.tab_toggle_panel": {
+    "size": "$size",
+    "$size": [26.0, 31.0],
+    "anims": [
+      "@cozy_animations:container.container_animation_size_exit_push",
+      "@cozy_animations:container.container_animation_size_exit_pop",
+      "@cozy_animations:container.container_animation_size_enter_pop",
+      "@cozy_animations:container.container_animation_size_enter_push"
+    ],
+    "animation_reset_name": "screen_animation_reset",
+    "$radio_toggle_group": true,
+    "$toggle_name": "navigation_tab",
+    "$toggle_group_default_selected": "$construction_index",
+    "$toggle_tab_focus_binding_type": "global",
+    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+    "$toggle_on_hover_binding_type": "global",
+    "$toggle_on_hover_binding_name": "#toggle_on_hover",
+    "$toggle_tts_toggle_on_text": "accessibility.state.selected",
+    "$toggle_tts_toggle_off_text": "accessibility.state.unselected",
+    "$toggle_tts_name": "accessibility.tab.tts.title"
+  },
+
+  "tab_toggle_panel": {
+    "type": "panel",
+    "$toggle_view_binding_name|default": "this_toggle",
+    "$template_toggle|default": "cozy_screen:creative_inventory.tab_toggle_template",
+    "controls": [
+      {
+        "$toggle_view_binding_name@$template_toggle": {}
+      }
+    ]
+  },
+
+  "tab_toggle_template@common.toggle": {
+    "$unchecked_control|default": "cozy_screen:creative_inventory.tab_toggle_layout_default",
+    "$checked_control|default": "cozy_screen:creative_inventory.tab_toggle_layout_hover",
+    "$unchecked_hover_control|default": "cozy_screen:creative_inventory.tab_toggle_layout_default",
+    "$checked_hover_control|default": "cozy_screen:creative_inventory.tab_toggle_layout_hover",
+    "$unchecked_locked_control|default": "cozy_screen:creative_inventory.tab_toggle_layout_default",
+    "$unchecked_locked_hover_control|default": "cozy_screen:creative_inventory.tab_toggle_layout_default",
+    "$checked_locked_control|default": "cozy_screen:creative_inventory.tab_toggle_layout_default",
+    "$checked_locked_hover_control|default": "cozy_screen:creative_inventory.tab_toggle_layout_default"
+  },
+
+  "tab_toggle_layout_default": {
+    "type": "panel",
+    "controls": [
+      {
+        "tl": {
+          "type": "image",
+          "ignored": "(not ($anchor0 = top_left))",
+          "layer": -15,
+          "texture": "cozy/sprites/inventory/tabs/top_left_tab_unselected"
+        }
+      },
+      {
+        "tr": {
+          "type": "image",
+          "ignored": "(not ($anchor0 = top_right))",
+          "layer": -15,
+          "texture": "cozy/sprites/inventory/tabs/top_right_tab_unselected"
+        }
+      },
+      {
+        "tm": {
+          "type": "image",
+          "ignored": "(not ($anchor0 = top_middle))",
+          "layer": -15,
+          "texture": "cozy/sprites/inventory/tabs/top_middle_tab_unselected"
+        }
+      },
+      {
+        "br": {
+          "type": "image",
+          "ignored": "(not ($anchor0 = bottom_right))",
+          "layer": -15,
+          "texture": "cozy/sprites/inventory/tabs/bottom_right_tab_unselected"
+        }
+      },
+      {
+        "$tab_icon@$tab_icon": {}
+      }
+    ]
+  },
+
+  "tab_toggle_layout_hover": {
+    "type": "panel",
+    "controls": [
+      {
+        "tl": {
+          "type": "image",
+          "ignored": "(not ($anchor0 = top_left))",
+          "texture": "cozy/sprites/inventory/tabs/top_left_tab_selected"
+        }
+      },
+      {
+        "tr": {
+          "type": "image",
+          "ignored": "(not ($anchor0 = top_right))",
+          "texture": "cozy/sprites/inventory/tabs/top_right_tab_selected"
+        }
+      },
+      {
+        "tm": {
+          "type": "image",
+          "ignored": "(not ($anchor0 = top_middle))",
+          "texture": "cozy/sprites/inventory/tabs/top_middle_tab_selected"
+        }
+      },
+      {
+        "br": {
+          "type": "image",
+          "ignored": "(not ($anchor0 = bottom_right))",
+          "texture": "cozy/sprites/inventory/tabs/bottom_right_tab_selected"
+        }
+      },
+      {
+        "$tab_icon@$tab_icon": {}
+      }
+    ]
+  },
+
+  "tab_icon_panel": {
+    "layer": 10,
+    "type": "panel",
+    "offset": [0.0, 2.0],
+    "size": ["61.53846153846%", "51.6129032258%"],
+    "$size": ["100.0%", "100.0%"],
+    "controls": [
+      {
+        "image": {
+          "type": "image",
+          "size": "$size",
+          "ignored": "$cozy_creative_tab_item_texture",
+          "texture": "$texture"
+        }
+      },
+      {
+        "render": {
+          "type": "custom",
+          "ignored": "(not $cozy_creative_tab_item_texture)",
+          "renderer": "inventory_item_renderer",
+          "property_bag": {
+            "#item_id_aux": "$id"
+          }
+        }
+      }
+    ]
+  },
+
+  "construction_icon@cozy_screen:creative_inventory.tab_icon_panel": {
+    "$id": "$cozy_aux_id_construction",
+    "$texture": "textures/ui/icon_recipe_construction"
+  },
+
+  "equipment_icon@cozy_screen:creative_inventory.tab_icon_panel": {
+    "$id": "$cozy_aux_id_equipment",
+    "$texture": "textures/ui/icon_recipe_equipment"
+  },
+
+  "nature_icon@cozy_screen:creative_inventory.tab_icon_panel": {
+    "$id": "$cozy_aux_id_nature",
+    "$texture": "textures/ui/icon_recipe_nature"
+  },
+
+  "search_icon@cozy_screen:creative_inventory.tab_icon_panel": {
+    "$id": "$cozy_aux_id_search",
+    "$texture": "textures/ui/magnifyingGlass"
+  },
+
+  "miscellaneous_icon@cozy_screen:creative_inventory.tab_icon_panel": {
+    "$id": "$cozy_aux_id_miscellaneous",
+    "$texture": "textures/ui/icon_recipe_item"
+  },
+
+  "inventory_icon@cozy_screen:creative_inventory.tab_icon_panel": {
+    "$id": "$cozy_aux_id_inventory",
+    "offset": [0.0, -2.0],
+    "$size": ["137.5%", "137.5%"],
+    "$texture": "textures/ui/inventory_icon"
+  },
+
+  "scroll_grid_panel@crafting.crafting_root_panel": {
+    "type": "input_panel",
+    "$size": ["100.0%", "100.0%c + 0.00000001px"],
+    "size": "$size",
+    "anims": [
+      "@cozy_animations:container.container_animation_size_exit_push",
+      "@cozy_animations:container.container_animation_size_exit_pop",
+      "@cozy_animations:container.container_animation_size_enter_pop",
+      "@cozy_animations:container.container_animation_size_enter_push"
+    ],
+    "animation_reset_name": "screen_animation_reset",
+    "layer": 2,
+    "controls": [
+      {
+        "grid@cozy_screen:creative_inventory.scroll_grid": {}
+      },
+      {
+        "slot_background@cozy_screen:creative_inventory.items_slot_background_stack_panel": {}
+      }
+    ]
+  },
+
+  "items_slot_background_stack_panel": {
+    "type": "stack_panel",
+    "size": ["100.0%", 0.0],
+    "offset": [0.0, "-34.0px"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      {
+        "line0@cozy_common:container.container_stack_panel_line": {}
+      },
+      {
+        "1@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "2@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "3@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "4@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "1@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "2@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "3@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "4@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "5@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "6@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "7@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "8@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "9@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "10@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "11@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "12@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "13@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "14@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "15@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "16@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "17@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "18@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "19@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "20@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "21@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "22@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "23@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "24@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "25@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "26@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "27@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "28@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "29@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "30@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "31@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "32@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "33@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "34@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "35@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "36@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "37@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "38@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "39@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "40@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "41@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "42@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "43@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "44@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "45@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "46@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "47@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "48@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "49@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "50@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "51@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "52@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "53@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "54@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "55@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "56@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "57@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "58@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "59@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "60@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "61@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "62@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "63@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "64@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "65@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "66@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "67@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "68@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "69@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "70@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "71@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "72@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "73@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "74@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "75@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "76@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "77@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "78@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "79@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "80@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "81@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "82@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "83@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "84@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "85@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "86@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "87@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "88@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "89@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "90@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "91@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "92@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "93@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "94@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "95@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "96@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "97@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "98@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "99@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "100@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "101@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "102@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "103@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "104@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "105@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "106@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "107@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "108@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "109@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "110@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "111@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "112@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "113@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "114@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "115@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "116@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "117@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "118@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "119@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "120@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "116@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "117@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "118@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "119@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "120@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "121@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "122@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "123@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "124@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "125@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "126@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "127@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "128@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "129@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "130@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "131@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "132@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "133@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "134@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "135@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "136@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "137@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "138@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "139@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "140@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "141@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "142@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "143@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "144@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "145@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "146@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "147@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "148@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "149@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "150@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "151@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "152@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "153@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "154@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "155@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "156@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "157@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "158@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "159@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "160@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "161@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "162@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "163@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "164@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "165@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "166@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "167@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "168@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "169@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "170@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "171@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "172@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "173@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "174@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "175@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "176@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "177@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "178@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "179@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "180@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "181@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "182@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "183@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "184@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "185@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "186@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "187@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "188@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "189@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "190@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "191@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "192@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "193@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "194@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "195@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "196@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "197@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "198@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "199@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "200@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "201@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "202@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "203@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "204@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "205@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "206@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "207@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "208@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "209@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "210@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "211@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "212@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "213@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "214@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "215@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "216@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "217@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "218@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "219@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "220@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "221@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "222@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "223@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "224@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "225@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "226@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "227@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "228@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "229@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "230@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "231@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "232@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "233@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "234@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "235@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "236@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "237@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "238@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "239@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "240@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "241@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "242@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "243@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "244@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "245@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "246@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "247@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "248@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "249@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "250@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "251@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "252@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "253@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "254@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "255@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "256@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "257@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "258@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "259@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "260@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "261@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "262@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "263@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "264@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "265@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "266@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "267@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "268@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "269@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "270@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "271@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "272@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "273@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "274@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "275@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "276@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "277@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "278@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "279@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "280@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "281@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "282@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "283@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "284@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "285@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "286@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "287@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "288@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "289@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "290@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "291@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "292@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "293@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "294@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "295@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "296@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "297@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "298@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "299@cozy_screen:creative_inventory.slot_background_template": {}
+      },
+      {
+        "300@cozy_screen:creative_inventory.slot_background_template": {}
+      }
+    ]
+  },
+
+  // 😃 
+  "slot_background_template": {
+    "type": "image",
+    "nineslice_size": 1.0,
+    "layer": 0,
+    "texture": "cozy/gui/creative_inventory/items_slot_background_template",
+    "size": ["100.0%", "34.0px"]
+  },
+
+  "scroll_grid": {
+    "type": "grid",
+    "size": ["100.0%", "default"],
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "$binding_condition|default": "visible",
+    "$grid_item_precache_count|default": 0,
+    "$grid_item_template|default": "cozy_screen:creative_inventory.grid_item_for_recipe_book",
+    "collection_name": "$collection_name",
+    "grid_rescaling_type": "horizontal",
+    "grid_item_template": "$grid_item_template",
+    "bindings": [
+      {
+        "binding_name": "#recipe_book_total_items",
+        "binding_name_override": "#maximum_grid_items",
+        "binding_condition": "$binding_condition",
+        "binding_type": "collection",
+        "binding_collection_name": "$collection_name"
+      }
+    ]
+  },
+
+  "grid_item_for_recipe_book@cozy_screen:creative_inventory.inventory_container_item": {
+    "$stack_count_required": true,
+    "$durability_bar_required": false,
+    "$storage_bar_required": false,
+    "$item_renderer_binding_condition": "visible",
+    "$button_ref": "cozy_common:container.creative_no_coalesce_container_slot_button",
+    "$background_images": "common.empty_panel",
+    "$slot_selected_binding_name": "#is_creative_selected_slot",
+    "$stack_count_binding_name": "#recipe_craftable_count",
+    "$item_collection_name": "recipe_book",
+    "$hover_text_binding_name": "#recipe_hover_text"
+  },
+
+  "inventory_container_item": {
+    "type": "input_panel",
+    "layer": 1,
+    "size": [18.0, 17.0],
+    "$cell_image_size|default": [18.0, 17.0],
+    "$cell_overlay_ref|default": "common.cell_overlay",
+    "$button_ref|default": "cozy_common:container.container_slot_button_prototype",
+    "$stack_count_required|default": true,
+    "$durability_bar_required|default": true,
+    "$storage_bar_required|default": true,
+    "$item_renderer|default": "common.item_renderer",
+    "$item_renderer_panel_size|default": ["100.0%", "100.0%"],
+    "$item_renderer_size|default": ["83.33333333333%", "88.23529411764%"],
+    "$item_renderer_offset|default": [0.0, 0.0],
+    "$background_images|default": "common.empty_panel",
+    "$background_image_control_name|default": "bg",
+    "$focus_id|default": "",
+    "$focus_override_down|default": "",
+    "$focus_override_up|default": "",
+    "$focus_override_left|default": "",
+    "$focus_override_right|default": "",
+    "focus_identifier": "$focus_id",
+    "focus_change_down": "$focus_override_down",
+    "focus_change_up": "$focus_override_up",
+    "focus_change_left": "$focus_override_left",
+    "focus_change_right": "$focus_override_right",
+    "focus_enabled": true,
+    "focus_wrap_enabled": false,
+    "focus_magnet_enabled": true,
+    "tts_ignore_count": true,
+    "$overlay_images|default": "crafting.container_overlay_images",
+    "$overlay_image_control_name|default": "overlay",
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "$item_collection_name"
+      }
+    ],
+    "controls": [
+      {
+        "item_cell": {
+          "type": "panel",
+          "size": "$cell_image_size",
+          "layer": 0,
+          "controls": [
+            {
+              "$background_image_control_name@$background_images": {
+                "layer": 1
+              }
+            },
+            {
+              "item": {
+                "type": "panel",
+                "size": "$item_renderer_panel_size",
+                "layer": 0,
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "stack_count_label@cozy_common:container.stack_count_label": {
+                      "layer": 27
+                    }
+                  },
+                  {
+                    "$item_renderer@$item_renderer": {
+                      "size": "$item_renderer_size",
+                      "offset": "$item_renderer_offset",
+                      "anchor_to": "center",
+                      "anchor_from": "center",
+                      "layer": 7
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "durability_bar@common.durability_bar": {
+                "layer": 20
+              }
+            },
+            {
+              "storage_bar@common.storage_bar": {
+                "layer": 20
+              }
+            },
+            {
+              "$overlay_image_control_name@$overlay_images": {
+                "layer": 9
+              }
+            }
+          ]
+        }
+      },
+      {
+        "item_cell_overlay_ref@$cell_overlay_ref": {
+          "layer": 3
+        }
+      },
+      {
+        "item_button_ref@$button_ref": {
+          "tts_ignore_count": true,
+          "tts_skip_message": true,
+          "tts_inherit_siblings": true,
+          "layer": 5
+        }
+      },
+      {
+        "container_item_lock_overlay@common.container_item_lock_overlay": {
+          "size": "$item_renderer_size",
+          "offset": [1.0, 1.0],
+          "anchor_to": "top_left",
+          "anchor_from": "top_left",
+          "layer": 6
+        }
+      },
+      {
+        "item_lock_cell_image@common.item_lock_cell_image": {
+          "layer": 2
+        }
+      },
+      {
+        "bundle_slot_panel@gameplay.bundle_slot_panel": {
+          "layer": 10
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "ui_defs": [
+    
+    "cozy/data/container/nozzle/common.json",
+    "cozy/data/container/nozzle/animations.json",
+    "cozy/data/screen/nozzle/common.json",
+    "cozy/data/screen/nozzle/animations.json",
+    
+    "cozy/data/container/creative_inventory.json",
+    "cozy/data/container/chest_screen.json",
+    "cozy/data/container/brewing_stand_screen.json",
+    "cozy/data/container/beacon_screen.json",
+    "cozy/data/container/smithing_table_screen.json",
+    "cozy/data/container/cartography_screen.json",
+    "cozy/data/container/anvil_screen.json",
+    "cozy/data/container/inventory_screen.json",
+    "cozy/data/container/horse_screen.json",
+    "cozy/data/container/trade_screen.json",
+    "cozy/data/container/stonecutter_screen.json",
+    "cozy/data/container/furnace_recipe/furnace_recipe.json",
+    "cozy/data/container/enchanting_screen.json",
+    "cozy/data/container/grindstone_screen.json",
+    "cozy/data/container/loom_screen.json",
+    "cozy/data/container/furnace_screen.json",
+    "cozy/data/container/redstone_screen.json",
+    
+    "cozy/data/screen/hud_screen.json",
+    "cozy/data/screen/start_screen.json",
+    "cozy/data/screen/manifest_validation_screen.json",
+    "cozy/data/screen/progress_screen.json",
+    "cozy/data/screen/pause_screen.json",
+    
+    "cozy/data/feature/item_renderer.json",
+    "cozy/data/feature/inventory_display.json",
+    "cozy/data/feature/chest_stealer.json",
+    "cozy/data/feature/hide_hud.json",
+    "cozy/data/feature/quick_item.json",
+    "cozy/data/feature/quickmove.json"
+  ]
+}

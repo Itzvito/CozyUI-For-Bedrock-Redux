@@ -1,0 +1,42 @@
+{
+  "namespace": "cozy_feature:item_renderer",
+
+  "item_renderer_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100.0%c", "100.0%cm"],
+    "offset": [4.0, -3.0],
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "controls": [
+      {
+        "compass@cozy_feature:item_renderer.custom": {
+          "$aux_id": "$cozy_aux_id_compass",
+          "ignored": "(not $cozy_hud_compass)"
+        }
+      },
+      {
+        "padding0": {
+          "type": "panel",
+          "ignored": "(not $cozy_hud_compass)",
+          "size": [2.0, 0.0]
+        }
+      },
+      {
+        "clock@cozy_feature:item_renderer.custom": {
+          "$aux_id": "$cozy_aux_id_clock",
+          "ignored": "(not $cozy_hud_clock)"
+        }
+      }
+    ]
+  },
+
+  "custom": {
+    "type": "custom",
+    "renderer": "inventory_item_renderer",
+    "size": [16.0, 16.0],
+    "property_bag": {
+      "#item_id_aux": "$aux_id"
+    }
+  }
+}

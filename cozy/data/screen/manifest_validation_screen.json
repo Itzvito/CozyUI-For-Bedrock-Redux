@@ -1,0 +1,394 @@
+{
+  "namespace": "cozy_screen:manifest_validation",
+
+  "manifest_validation_screen_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "controls": [
+      {
+        "vanilla_dialog_panel": {
+          "type": "panel",
+          "size": "$extra_large_screen_size",
+          "max_size": "$extra_large_max_screen_size",
+          "controls": [
+            {
+              "background@common_dialogs.main_panel_no_buttons": {
+                "$fill_alpha": 1,
+                "$text_name": "manifestvalidation.title",
+                "$child_control": "manifest_validation.manifest_validation_scroll_content",
+                "$show_close_button": true
+              }
+            }
+          ]
+        }
+      },
+      {
+        "manifest_validation_content@cozy_screen:manifest_validation.manifest_validation_content": {
+          "bindings": [
+            {
+              "binding_name": "#pack_header_title",
+              "binding_name_override": "#pack_name",
+              "binding_type": "global"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#pack_name = $pack_name)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "manifest_validation_content": {
+    "type": "panel",
+    "layer": 100,
+    "controls": [
+      {
+        "background": {
+          "type": "image",
+          "size": ["100.0%", "100.0%"],
+          "texture": "cozy/icon/background",
+          "fill": true,
+          "layer": -1
+        }
+      },
+      {
+        "information_dialog": {
+          "type": "panel",
+          "layer": 5,
+          "size": ["357.14285714px", "200.0px"],
+          "controls": [
+            {
+              "close_button@common.button": {
+                "size": ["16.0px", "16.0px"],
+                "offset": ["-8.0px", "5.6px"],
+                "anchor_from": "top_right",
+                "anchor_to": "top_right",
+                "$pressed_button_name": "button.menu_exit",
+                "controls": [
+                  {
+                    "default": {
+                      "type": "image",
+                      "texture": "cozy/icon/close"
+                    }
+                  },
+                  {
+                    "pressed": {
+                      "type": "image",
+                      "texture": "cozy/icon/close"
+                    }
+                  },
+                  {
+                    "hover": {
+                      "type": "image",
+                      "texture": "cozy/icon/close"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "content": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "offset": [0.0, "6.876px"],
+                "size": ["334.0px", "161.0px"],
+                "controls": [
+                  {
+                    "tab_list_panel": {
+                      "type": "stack_panel",
+                      "size": ["100.0%cm", "100.0%"],
+                      "$default_selector_toggle_index": 1,
+                      "controls": [
+                        {
+                          "padding0": {
+                            "type": "panel",
+                            "size": [1.0, 1.0]
+                          }
+                        },
+                        {
+                          "about@cozy_screen:manifest_validation.tab_toggle": {
+                            "$button_text": "关于CozyUI移植版",
+                            "$toggle_group_forced_index": 1,
+                            "$toggle_view_binding_name": "cozy_screen:manifest_validation.about_tab"
+                          }
+                        },
+                        {
+                          "padding1": {
+                            "type": "panel",
+                            "size": [1.0, 1.0]
+                          }
+                        },
+                        {
+                          "changelog@cozy_screen:manifest_validation.tab_toggle": {
+                            "$button_text": "更新日志",
+                            "$toggle_group_forced_index": 2,
+                            "$toggle_view_binding_name": "cozy_screen:manifest_validation.changelog_tab"
+                          }
+                        },
+                        {
+                          "padding2": {
+                            "type": "panel",
+                            "size": [1.0, 1.0]
+                          }
+                        },
+                        {
+                          "credits@cozy_screen:manifest_validation.tab_toggle": {
+                            "$button_text": "鸣谢",
+                            "$toggle_group_forced_index": 3,
+                            "$toggle_view_binding_name": "cozy_screen:manifest_validation.credits_tab"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "padding0": {
+                      "type": "panel",
+                      "size": [5.0, 5.0]
+                    }
+                  },
+                  {
+                    "scrolling_content": {
+                      "type": "panel",
+                      "size": ["fill", "100.0%"],
+                      "controls": [
+                        {
+                          "aboutsp@common.scrolling_panel": {
+                            "size": ["100.0%", "100.0%"],
+                            "$show_background|default": false,
+                            "$scrolling_content": "cozy_screen:manifest_validation.aboutpage",
+                            "$scroll_box_touch_image_control": "common.empty_panel",
+                            "$scroll_box_mouse_image_control": "common.empty_panel",
+                            "bindings": [
+                              {
+                                "binding_type": "view",
+                                "source_control_name": "cozy_screen:manifest_validation.about_tab",
+                                "source_property_name": "#toggle_state",
+                                "target_property_name": "#visible"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "changelogsp@common.scrolling_panel": {
+                            "size": ["100.0%", "100.0%"],
+                            "$show_background|default": false,
+                            "$scrolling_content": "cozy_screen:manifest_validation.changelogpage",
+                            "$scroll_box_touch_image_control": "common.empty_panel",
+                            "$scroll_box_mouse_image_control": "common.empty_panel",
+                            "bindings": [
+                              {
+                                "binding_type": "view",
+                                "source_control_name": "cozy_screen:manifest_validation.changelog_tab",
+                                "source_property_name": "#toggle_state",
+                                "target_property_name": "#visible"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "creditssp@common.scrolling_panel": {
+                            "size": ["100.0%", "100.0%"],
+                            "$show_background|default": false,
+                            "$scrolling_content": "cozy_screen:manifest_validation.creditspage",
+                            "$scroll_box_touch_image_control": "common.empty_panel",
+                            "$scroll_box_mouse_image_control": "common.empty_panel",
+                            "bindings": [
+                              {
+                                "binding_type": "view",
+                                "source_control_name": "cozy_screen:manifest_validation.credits_tab",
+                                "source_property_name": "#toggle_state",
+                                "target_property_name": "#visible"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "dialog_content_background": {
+                "type": "image",
+                "layer": -1,
+                "texture": "cozy/icon/manifest_validation_dialog"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "tab_toggle@cozy_screen:manifest_validation.tab_toggle_panel": {
+    "size": ["96.0px", "24.0px"],
+    "$radio_toggle_group": true,
+    "$toggle_name": "😁😁😁_navigation_tab",
+    "$toggle_group_default_selected": "$default_selector_toggle_index",
+    "$toggle_tab_focus_binding_type": "global",
+    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+    "$toggle_on_hover_binding_type": "global",
+    "$toggle_on_hover_binding_name": "#toggle_on_hover",
+    "$toggle_tts_toggle_on_text": "accessibility.state.selected",
+    "$toggle_tts_toggle_off_text": "accessibility.state.unselected",
+    "$toggle_tts_name": "accessibility.tab.tts.title"
+  },
+
+  "tab_toggle_panel": {
+    "type": "panel",
+    "$toggle_view_binding_name|default": "this_toggle",
+    "$template_toggle|default": "cozy_screen:manifest_validation.tab_toggle_template",
+    "controls": [
+      {
+        "$toggle_view_binding_name@$template_toggle": {}
+      }
+    ]
+  },
+
+  "tab_toggle_template@common.toggle": {
+    "sound_volume": 0.0,
+    "sound_pitch": 0.0,
+    "controls": [
+      {
+        "button_text": {
+          "type": "label",
+          "text": "$button_text",
+          "layer": 5,
+          "color": "white"
+        }
+      },
+      {
+        "on": {
+          "type": "image",
+          "size": ["100.0%", "24.0px"],
+          "texture": "cozy/sprites/trade/toggle_default",
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "$toggle_view_binding_name",
+              "source_property_name": "(not #toggle_state)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "off": {
+          "type": "image",
+          "size": ["100.0%", "24.0px"],
+          "texture": "cozy/sprites/trade/toggle_locked",
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "$toggle_view_binding_name",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "aboutpage": {
+    "type": "stack_panel",
+    "size": ["100.0%", "default"],
+    "controls": [
+      {
+        "title0@cozy_screen:manifest_validation.titlebase": {
+          "text": "CozyUI For Bedrock"
+        }
+      },
+      {
+        "text0@cozy_screen:manifest_validation.textbase": {
+          "text": " \nCozyUI 原作者: @Fogg05"
+        }
+      },
+      {
+        "text1@cozy_screen:manifest_validation.textbase": {
+          "text": "CozyUI 开源地址: https://github.com/Fogg05/CozyUI-Plus\n移植作者: @OtrEndPluer\n "
+        }
+      },
+      {
+        "text4@cozy_screen:manifest_validation.textbase": {
+          "text": "CozyUI，一款深受 Java 版玩家喜愛的 UI 材質包。\nCozyUI For Bedrock 由我獨自移植製作，並非對現有版本的修改或補丁——此前社群雖有過移植嘗試，但存在一些未能解決的瑕疵，因此我決定自己動手，重新移植。CozyUI 的原作者 05 已於25年年底離世。他留下的這份作品陪伴了無數玩家，溫暖而精緻。希望這次移植，能讓更多基岩版玩家感受到他的設計，也算是對他小小的致敬。\n "
+        }
+      },
+      {
+        "text6@cozy_screen:manifest_validation.textbase": {
+          "text": "('当前UI版本' + $pack_version)"
+        }
+      }
+    ]
+  },
+
+  "changelogpage": {
+    "type": "stack_panel",
+    "size": ["100.0%", "default"],
+    "controls": [
+      {
+        "title0@cozy_screen:manifest_validation.titlebase": {
+          "text": "更新日志"
+        }
+      },
+      {
+        "tip@cozy_screen:manifest_validation.textbase": {
+          "text": "§l由于此界面于1.1.0版本添加，所以不显示1.1.0以下版本的更新日志"
+        }
+      },
+      {
+        "112@cozy_screen:manifest_validation.textbase": {
+          "text": " \n1.1.2版本\n-忘了"
+        }
+      },
+      {
+        "111@cozy_screen:manifest_validation.textbase": {
+          "text": " \n1.1.1版本\n-主界面添加版本信息显示\n-修复了一个神秘小Bug\n-物品提示框变量调整为默认关闭"
+        }
+      },
+      {
+        "110@cozy_screen:manifest_validation.textbase": {
+          "text": " \n1.1.0版本\n-设置界面添加关于CozyUI页面\n-漏斗，发射器，投掷器等容器添加快速搬运\n-修复 流浪商人 交易界面不显示 '流浪商人' 文本问题\n-修复村民交易界面 交易选择按钮使用错误贴图问题\n-修复合成器界面输出物品变大问题\n-修复熔炉配方界面格子重叠问题\n-修复 Java 配方栏格子透明度问题"
+        }
+      }
+    ]
+  },
+
+  "creditspage": {
+    "type": "stack_panel",
+    "size": ["100.0%", "default"],
+    "controls": [
+      {
+        "title0@cozy_screen:manifest_validation.titlebase": {
+          "text": "感谢名单"
+        }
+      },
+      {
+        "text0@cozy_screen:manifest_validation.textbase": {
+          "text": " \nBug反馈人员\n-楽汝齊\n-小宇SHIJIE\n-快乐恶魂#265\n-风起\n-˶╹ꇴ╹˶\n-Faust\n冬 𝒇𝒆𝒍𝒊𝒄𝒊𝒕𝒚\n-有点小气"
+        }
+      },
+      {
+        "title1@cozy_screen:manifest_validation.textbase": {
+          "text": " \n感谢所有为这个项目贡献过力量的人。\n无论是提交 Bug、提出建议、参与测试，还是分享使用体验，你们的每一次反馈都推动着项目不断进步。\n开源项目从来不是一个人的成果，而是许多人共同努力的结果。\n感谢一路以来的支持，希望这个项目能继续陪伴大家，也欢迎未来继续提出宝贵的意见。❤"
+        }
+      }
+    ]
+  },
+
+  "titlebase": {
+    "type": "label",
+    "font_scale_factor": 1.8
+  },
+
+  "textbase": {
+    "type": "label",
+    "size": ["100.0%", "default"],
+    "font_scale_factor": 1.0
+  }
+}

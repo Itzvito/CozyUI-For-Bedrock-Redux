@@ -1,0 +1,17 @@
+{
+	"furnace_screen@cozy_common:container.container_screen_common": {
+		"$container|default": "furnace",
+		"$screen_content": "cozy_screen:furnace.screen_content",
+		"close_on_player_hurt": "$cozy_close_container_on_hurt",
+		"variables": [
+			{
+				"requires": "$cozy_furnace_recipe_screen",
+				"$screen_content": "cozy_screen:furnace_recipe.screen_content"
+			},
+			{
+				"requires": "(not $cozy_furnace_recipe_screen)",
+				"$screen_content": "cozy_screen:furnace.screen_content"
+			}
+		]
+	}
+}

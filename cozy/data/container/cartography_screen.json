@@ -1,0 +1,256 @@
+{
+  "namespace": "cozy_screen:cartography",
+
+  "screen_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "layer": 10,
+    "controls": [
+      {
+        "screen_panel@cozy_common:container.screen_base": {
+          "$size": [176.0, 166.0],
+          "controls": [
+            {
+              "container_exit_button@cozy_common:container.container_exit_button": {}
+            },
+            {
+              "cartography_panel_top_half@cozy_screen:cartography.cartography_panel_top_half": {}
+            },
+            {
+              "hotbar_inventory_content@cozy_common:container.hotbar_inventory_content": {}
+            },
+            {
+              "container_utils_content@cozy_common:container.container_utils_content": {}
+            },
+            {
+              "tab_toggle_stack_panel@cozy_feature:quick_item.tab_toggle_stack_panel": {}
+            },
+            {
+              "gamepad_cursor@cozy_common:container.gamepad_cursor_button": {}
+            },
+            {
+              "flying_item_renderer@common.flying_item_renderer": {
+                "layer": 100
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+            }
+          ]
+        }
+      },
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "selected_item_details_factory@cozy_common:container.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      }
+    ]
+  },
+
+  "cartography_panel_top_half": {
+    "type": "panel",
+    "layer": 5,
+    "size": ["100.0%", "40.0%"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      {
+        "left_items_panel": {
+          "type": "stack_panel",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": ["100.0%cm", "100.0%c"],
+          "offset": ["8.0%", "12.0%"],
+          "controls": [
+            {
+              "input_items@cozy_common:container.container_item": {
+                "$item_collection_name": "cartography_input_items"
+              }
+            },
+            {
+              "line0@cozy_common:container.container_stack_panel_line": {}
+            },
+            {
+              "padding0": {
+                "type": "panel",
+                "size": ["100.0%sm", "100.0%sm"]
+              }
+            },
+            {
+              "line1@cozy_common:container.container_stack_panel_line": {}
+            },
+            {
+              "additional_items@cozy_common:container.container_item": {
+                "$item_collection_name": "cartography_additional_items"
+              }
+            }
+          ]
+        }
+      },
+      /*
+            {
+              "crossout": {  //原版没有 crossout 这个控件
+                "type": "image",
+                "size": ["20.22727272727%", "36.75%"],
+                "offset": ["-22.5%", "12.0%"],
+                "texture": "cozy/sprites/cartography/crossout"
+              }
+            },*/
+      {
+        "map_image_panel@cozy_screen:cartography.map_image_panel": {}
+      },
+      {
+        "result_items@cozy_common:container.container_item": {
+          "$size": [22.5, 21.0],
+          "offset": ["-6.5%", "20.0%"],
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "$item_collection_name": "cartography_result_items",
+          "$button_ref": "cozy_screen:cartography.cartography_output_slot_button",
+          "$focus_id_binding_type": "none",
+          "$focus_id": "cartography_result",
+          "$focus_override_left_binding_type": "none",
+          "$focus_override_left": "cartography_additional"
+        }
+      }
+    ]
+  },
+  
+  "cartography_output_slot_button@common.no_coalesce_container_slot_button": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.cartography_result_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.cartography_result_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_back",
+        "to_button_id": "button.cartography_result_take_all_place_all",
+        "mapping_type": "pressed",
+        "ignored": "(not $is_ps4)"
+      },
+      {
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.cartography_result_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.cartography_result_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_auto_place",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop",
+        "to_button_id": "button.drop_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop_all",
+        "to_button_id": "button.drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "to_button_id": "button.container_slot_hovered",
+        "mapping_type": "pressed"
+      }
+    ]
+  },
+
+  "map_image_panel": {
+    "type": "panel",
+    "offset": ["7.0%", "16.0%"],
+    "$size": [66.0, 66.0],
+    "anims": [
+      "@cozy_animations:container.container_animation_size_exit_push",
+      "@cozy_animations:container.container_animation_size_exit_pop",
+      "@cozy_animations:container.container_animation_size_enter_pop",
+      "@cozy_animations:container.container_animation_size_enter_push"
+    ],
+    "animation_reset_name": "screen_animation_reset",
+    "controls": [
+      {
+        "none_map@cozy_screen:cartography.map_image": {
+          "$map_texture": "cozy/sprites/cartography/map",
+          "$map_binding_name": "#is_none_mode"
+        }
+      },
+      {
+        "copy_map@cozy_screen:cartography.map_image": {
+          "$map_texture": "cozy/sprites/cartography/map",
+          "$map_binding_name": "#is_clone_mode"
+        }
+      },
+      {
+        "rename_map@cozy_screen:cartography.map_image": {
+          "$map_texture": "cozy/sprites/cartography/map",
+          "$map_binding_name": "#is_rename_mode"
+        }
+      },
+      {
+        "map@cozy_screen:cartography.map_image": {
+          "$map_texture": "cozy/sprites/cartography/map",
+          "$map_binding_name": "#is_basic_map_mode"
+        }
+      },
+      {
+        "locator_map@cozy_screen:cartography.map_image": {
+          "$map_texture": "cozy/sprites/cartography/map",
+          "$map_binding_name": "#is_locator_map_mode"
+        }
+      },
+      {
+        "zoom_map@cozy_screen:cartography.map_image": {
+          "$map_texture": "cozy/sprites/cartography/map_zoom",
+          "$map_binding_name": "#is_extend_mode"
+        }
+      },
+      {
+        "lock_map@cozy_screen:cartography.map_image": {
+          "$map_texture": "cozy/sprites/cartography/map",
+          "$map_binding_name": "#is_locked_mode"
+        }
+      },
+      {
+        "Locked@cozy_screen:cartography.map_image": {
+          "size": ["90.90909090909%", "90.90909090909%"],
+          "layer": 5,
+          "$map_texture": "cozy/sprites/cartography/locked",
+          "$map_binding_name": "#is_locked_mode"
+        }
+      }
+    ]
+  },
+
+  "map_image": {
+    "type": "image",
+    "texture": "$map_texture",
+    "bindings": [
+      {
+        "binding_name": "$map_binding_name",
+        "binding_name_override": "#visible"
+      }
+    ]
+  }
+}

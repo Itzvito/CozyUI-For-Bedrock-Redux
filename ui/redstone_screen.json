@@ -1,0 +1,53 @@
+{
+  "hopper_screen@crafting.inventory_screen_base": {
+    "$container": "hopper",
+    "$screen_content": "cozy_screen:redstone.1x5_screen_content",
+    "$screen_bg_content": "common.empty_panel",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "$screen_animations": [
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ]
+  },
+  
+  "dispenser_screen@crafting.inventory_screen_base": {
+    "$container": "dispenser",
+    "$screen_content": "cozy_screen:redstone.3x3_screen_content",
+    "$screen_bg_content": "common.empty_panel",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "$screen_animations": [
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ]
+  },
+  
+  "dropper_screen@crafting.inventory_screen_base": {
+    "$container": "dropper",
+    "$screen_content": "cozy_screen:redstone.3x3_screen_content",
+    "$screen_bg_content": "common.empty_panel",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "$screen_animations": [
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ]
+  },
+  
+  "crafter_screen@crafting.inventory_screen_base": {
+    "$container": "crafter",
+    "$screen_content": "cozy_screen:redstone.3x3_screen_content",
+    "$screen_bg_content": "common.empty_panel",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "$screen_animations": [
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ]
+  }
+}

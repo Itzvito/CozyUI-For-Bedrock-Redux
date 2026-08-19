@@ -1,0 +1,633 @@
+{
+  "namespace": "cozy_screen:beacon",
+
+  "screen_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "layer": 10,
+    "controls": [
+      {
+        "screen_panel@cozy_common:container.screen_base": {
+          "$size": [265.0, 219.0],
+          "controls": [
+            {
+              "container_exit_button@cozy_common:container.container_exit_button": {}
+            },
+            {
+              "beacon_panel_top_half@cozy_screen:beacon.beacon_panel_top_half": {}
+            },
+            {
+              "usable_items_panel@cozy_screen:beacon.usable_items_panel": {}
+            },
+            {
+              "hotbar_inventory_content@cozy_common:container.hotbar_inventory_content": {}
+            },
+            {
+              "container_utils_content@cozy_common:container.container_utils_content": {}
+            },
+            {
+              "tab_toggle_stack_panel@cozy_feature:quick_item.tab_toggle_stack_panel": {
+                "offset": ["-77.0%x", "-3.5px"]
+              }
+            },
+            {
+              "gamepad_cursor@cozy_common:container.gamepad_cursor_button": {}
+            },
+            {
+              "flying_item_renderer@common.flying_item_renderer": {
+                "layer": 20
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+            }
+          ]
+        }
+      },
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "selected_item_details_factory@cozy_common:container.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      }
+    ]
+  },
+
+  "beacon_panel_top_half": {
+    "type": "panel",
+    "size": ["82.8125%", "44.29223744292%"],
+    "offset": [0.0, 4.0],
+    "layer": 10,
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      {
+        "left_effect_content": {
+          "type": "panel",
+          "offset": ["-35.0%c", "-12.0%x"],
+          "size": ["100.0%cm", "100.0%c + 8.0px"],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "controls": [
+            {
+              "effect0": {
+                "type": "panel",
+                "size": ["100.0%c + 4.0px", "100.0%cm"],
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "controls": [
+                  {
+                    "speed_panel@cozy_screen:beacon.panel_template": {
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "$button_name": "speed",
+                      "$image_texture": "textures/ui/speed_effect"
+                    }
+                  },
+                  {
+                    "haste_panel@cozy_screen:beacon.panel_template": {
+                      "anchor_from": "right_middle",
+                      "anchor_to": "right_middle",
+                      "$button_name": "haste",
+                      "$image_texture": "textures/ui/haste_effect"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "effect1": {
+                "type": "panel",
+                "size": ["100.0%c + 4.0px", "100.0%cm"],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "resist_panel@cozy_screen:beacon.panel_template": {
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "$button_name": "resist",
+                      "$image_texture": "textures/ui/resistance_effect"
+                    }
+                  },
+                  {
+                    "jump_panel@cozy_screen:beacon.panel_template": {
+                      "anchor_from": "right_middle",
+                      "anchor_to": "right_middle",
+                      "$button_name": "jump",
+                      "$image_texture": "textures/ui/jump_boost_effect"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "effect2": {
+                "type": "panel",
+                "size": ["100.0%c + 4.0px", "100.0%cm"],
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "controls": [
+                  {
+                    "strength_panel@cozy_screen:beacon.panel_template": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "$button_name": "strength",
+                      "$image_texture": "textures/ui/strength_effect"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "right_effect_content": {
+          "type": "panel",
+          "size": ["100.0%c + 4.0px", "100.0%cm"],
+          "offset": ["25.0%", "8.0%x"],
+          "controls": [
+            {
+              "regen_panel@cozy_screen:beacon.panel_template": {
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "$button_name": "regen",
+                "$image_texture": "textures/ui/regeneration_effect"
+              }
+            },
+            {
+              "extra_panel@cozy_screen:beacon.panel_template": {
+                "anchor_from": "right_middle",
+                "anchor_to": "right_middle",
+                "$button_name": "extra",
+                "$image_control": "cozy_screen:beacon.secondary_effect_images"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "secondary_effect_images@cozy_screen:beacon.image_template": {
+    "controls": [
+      {
+        "speed_secondary@cozy_screen:beacon.speed_secondary": {}
+      },
+      {
+        "haste_secondary@cozy_screen:beacon.haste_secondary": {}
+      },
+      {
+        "resist_secondary@cozy_screen:beacon.resist_secondary": {}
+      },
+      {
+        "jump_secondary@cozy_screen:beacon.jump_secondary": {}
+      },
+      {
+        "strength_secondary@cozy_screen:beacon.strength_secondary": {}
+      }
+    ]
+  },
+
+  "secondary_effect_base@cozy_screen:beacon.base_image": {
+    "bindings": [
+      {
+        "binding_name": "#extra_image_selection",
+        "binding_name_override": "#visible",
+        "binding_collection_name": "$effect_name",
+        "binding_type": "collection"
+      }
+    ]
+  },
+
+  "speed_secondary@cozy_screen:beacon.secondary_effect_base": {
+    "$effect_name": "speed",
+    "$image_texture": "textures/ui/speed_effect"
+  },
+
+  "haste_secondary@cozy_screen:beacon.secondary_effect_base": {
+    "$effect_name": "haste",
+    "$image_texture": "textures/ui/haste_effect"
+  },
+
+  "resist_secondary@cozy_screen:beacon.secondary_effect_base": {
+    "$effect_name": "resist",
+    "$image_texture": "textures/ui/resistance_effect"
+  },
+
+  "jump_secondary@cozy_screen:beacon.secondary_effect_base": {
+    "$effect_name": "jump",
+    "$image_texture": "textures/ui/jump_boost_effect"
+  },
+
+  "strength_secondary@cozy_screen:beacon.secondary_effect_base": {
+    "$effect_name": "strength",
+    "$image_texture": "textures/ui/strength_effect"
+  },
+
+  "usable_items_panel": {
+    "type": "stack_panel",
+    "layer": 10,
+    "offset": ["12.25%", "4.0%"],
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "orientation": "horizontal",
+    "size": ["40.625%", "100.0%cm"],
+    "controls": [
+      {
+        "netherite@cozy_screen:beacon.item_renderer": {
+          "$property_bag": {
+            "#item_id_aux": 48627712
+          },
+          "bindings": [
+            {
+              "binding_name": "#supports_netherite",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "item_seperator_0@cozy_screen:beacon.item_seperator": {
+          "bindings": [
+            {
+              "binding_name": "#supports_netherite",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "emerald@cozy_screen:beacon.item_renderer": {
+          "$property_bag": {
+            "#item_id_aux": 25427968
+          }
+        }
+      },
+      {
+        "item_seperator_1@cozy_screen:beacon.item_seperator": {}
+      },
+      {
+        "diamond@cozy_screen:beacon.item_renderer": {
+          "$property_bag": {
+            "#item_id_aux": 17301504
+          }
+        }
+      },
+      {
+        "item_seperator_2@cozy_screen:beacon.item_seperator": {}
+      },
+      {
+        "gold@cozy_screen:beacon.item_renderer": {
+          "$property_bag": {
+            "#item_id_aux": 17432576
+          }
+        }
+      },
+      {
+        "item_seperator_3@cozy_screen:beacon.item_seperator": {}
+      },
+      {
+        "iron@cozy_screen:beacon.item_renderer": {
+          "$property_bag": {
+            "#item_id_aux": 17367040
+          }
+        }
+      },
+      {
+        "padding0@cozy_screen:beacon.item_seperator": {
+          "$size": [10.0, 0.0]
+        }
+      },
+      {
+        "payment_item@cozy_common:container.container_item": {
+          "$item_collection_name": "beacon_payment_items"
+        }
+      },
+      {
+        "padding1@cozy_screen:beacon.item_seperator": {
+          "$size": [8.0, 0.0]
+        }
+      },
+      {
+        "confirm_panel": {
+          "type": "panel",
+          "size": [18.0, 18.0],
+          "controls": [
+            {
+              "confirm_panel@cozy_screen:beacon.panel_template": {
+                "offset": [0.0, "-10.0%"],
+                "$size": [22.0, 22.0],
+                "$button_name": "confirm",
+                "$image_texture": "cozy/sprites/beacon/confirm",
+                "$image_size": ["63.63636363636%", "63.63636363636%"],
+                "$button_control": "cozy_screen:beacon.button_template"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding2@cozy_screen:beacon.item_seperator": {}
+      },
+      {
+        "cancel_panel": {
+          "type": "panel",
+          "size": [18.0, 18.0],
+          "controls": [
+            {
+              "cancel_panel@cozy_screen:beacon.panel_template": {
+                "offset": [0.0, "-10.0%"],
+                "$size": [22.0, 22.0],
+                "$button_name": "cancel",
+                "$image_texture": "cozy/sprites/beacon/cancel",
+                "$image_size": ["63.63636363636%", "63.63636363636%"],
+                "$button_control": "cozy_screen:beacon.button_template"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "button_template@cozy_screen:beacon.toggle_template": {
+    "controls": [
+      {
+        "active_button@cozy_screen:beacon.active_button": {}
+      },
+      {
+        "inactive_button@cozy_screen:beacon.inactive_button": {}
+      },
+      {
+        "image_template@cozy_screen:beacon.image_template": {}
+      }
+    ]
+  },
+
+  "base_button@common.button": {
+    "size": [22.0, 22.0],
+    "layer": 0,
+    "focus_wrap_enabled": false,
+    "bindings": [
+      {
+        "binding_name": "$button_active",
+        "binding_name_override": "#visible",
+        "binding_collection_name": "$button_name",
+        "binding_type": "collection"
+      },
+      {
+        "binding_collection_name": "$button_name",
+        "binding_type": "collection_details"
+      }
+    ],
+    "controls": [
+      {
+        "default": {
+          "type": "image",
+          "texture": "cozy/sprites/beacon/button_default"
+        }
+      },
+      {
+        "hover": {
+          "type": "image",
+          "texture": "cozy/sprites/beacon/button_hover"
+        }
+      },
+      {
+        "pressed": {
+          "type": "image",
+          "texture": "cozy/sprites/beacon/button_pressed"
+        }
+      }
+    ]
+  },
+
+  "active_button@cozy_screen:beacon.base_button": {
+    "$button_active": "#active",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_back",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed",
+        "ignored": "(not $is_ps4)"
+      }
+    ]
+  },
+
+  "inactive_button@cozy_screen:beacon.base_button": {
+    "$button_active": "#inactive",
+    "pressed_control": "",
+    "button_mappings": [],
+    "controls": [
+      {
+        "default": {
+          "type": "image",
+          "texture": "cozy/sprites/beacon/button_locked"
+        }
+      },
+      {
+        "hover@beacon.hover_state": {
+          "texture": "cozy/sprites/beacon/button_locked"
+        }
+      }
+    ]
+  },
+
+  "item_seperator": {
+    "type": "panel",
+    "$size": [5.0, 0.0],
+    "size": "$size",
+    "anims": ["@cozy_animations:container.container_animation_size_exit_push", "@cozy_animations:container.container_animation_size_exit_pop", "@cozy_animations:container.container_animation_size_enter_pop", "@cozy_animations:container.container_animation_size_enter_push"],
+    "animation_reset_name": "screen_animation_reset"
+  },
+
+  "item_renderer": {
+    "type": "panel",
+    "size": "$size",
+    "$size": [18.0, 18.0],
+    "anims": ["@cozy_animations:container.container_animation_size_exit_push", "@cozy_animations:container.container_animation_size_exit_pop", "@cozy_animations:container.container_animation_size_enter_pop", "@cozy_animations:container.container_animation_size_enter_push"],
+    "animation_reset_name": "screen_animation_reset",
+    "controls": [
+      {
+        "render": {
+          "type": "custom",
+          "property_bag": "$property_bag",
+          "renderer": "inventory_item_renderer",
+          "size": ["88.88888888888%", "88.88888888888%"]
+        }
+      }
+    ]
+  },
+
+  "panel_template": {
+    "type": "panel",
+    "size": "$size",
+    "$size": [22.0, 22.0],
+    "anims": ["@cozy_animations:container.container_animation_size_exit_push", "@cozy_animations:container.container_animation_size_exit_pop", "@cozy_animations:container.container_animation_size_enter_pop", "@cozy_animations:container.container_animation_size_enter_push"],
+    "animation_reset_name": "screen_animation_reset",
+    "layer": 4,
+    "anchor_from": "top_middle",
+    "anchor_to": "top_left",
+    "$button_control|default": "cozy_screen:beacon.toggle_template",
+    "bindings": [
+      {
+        "binding_type": "collection",
+        "binding_name": "#active",
+        "binding_collection_name": "$button_name",
+        "binding_name_override": "#enabled"
+      }
+    ],
+    "controls": [
+      {
+        "$button_control@$button_control": {}
+      }
+    ]
+  },
+
+  "toggle_template": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "$image_control|default": "cozy_screen:beacon.image_template",
+    "controls": [
+      {
+        "toggle_button@cozy_screen:beacon.toggle_button": {}
+      },
+      {
+        "$image_control@$image_control": {}
+      }
+    ]
+  },
+
+  "image_template": {
+    "type": "panel",
+    "size": ["81.81818181818%", "81.81818181818%"],
+    "layer": 3,
+    "controls": [
+      {
+        "base_image@cozy_screen:beacon.base_image": {}
+      }
+    ]
+  },
+
+  "base_image@beacon.image_atlas": {
+    "$image_size|default": ["100.0%", "100.0%"],
+    "size": "$image_size",
+    "texture": "$image_texture",
+    "bindings": [
+      {
+        "binding_name": "#button_visible",
+        "binding_name_override": "#visible",
+        "binding_collection_name": "$button_name",
+        "binding_type": "collection"
+      }
+    ]
+  },
+
+  "toggle_button@common.toggle": {
+    "size": ["100.0%", "100.0%"],
+    "layer": 1,
+    "focus_wrap_enabled": false,
+    "$toggle_name": "$button_name",
+    "$unchecked_control": "cozy_screen:beacon.button_unchecked_default",
+    "$checked_control": "cozy_screen:beacon.button_checked",
+    "$unchecked_hover_control": "cozy_screen:beacon.button_unchecked_hover",
+    "$checked_hover_control": "cozy_screen:beacon.button_checked_hover",
+    "$unchecked_locked_control": "cozy_screen:beacon.button_locked",
+    "$checked_locked_control": "cozy_screen:beacon.button_locked",
+    "$unchecked_locked_hover_control": "cozy_screen:beacon.button_locked_hover",
+    "$checked_locked_hover_control": "cozy_screen:beacon.button_locked_hover",
+    "bindings": [
+      {
+        "binding_name": "#button_visible",
+        "binding_name_override": "#visible",
+        "binding_collection_name": "$button_name",
+        "binding_type": "collection"
+      },
+      {
+        "binding_collection_name": "$button_name",
+        "binding_type": "collection_details"
+      },
+      {
+        "binding_type": "collection",
+        "binding_name": "#selected",
+        "binding_collection_name": "$button_name",
+        "binding_name_override": "#toggle_state"
+      }
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_back",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "pressed",
+        "ignored": "(not $is_ps4)"
+      }
+    ]
+  },
+
+  "button_unchecked_default@beacon.image_atlas": {
+    "texture": "cozy/sprites/beacon/button_default"
+  },
+
+  "button_unchecked_hover@beacon.image_atlas": {
+    "texture": "cozy/sprites/beacon/button_hover",
+    "controls": [
+      {
+        "hover_text@beacon.hover_text": {}
+      }
+    ]
+  },
+
+  "button_checked_hover@beacon.image_atlas": {
+    "texture": "cozy/sprites/beacon/button_pressed",
+    "controls": [
+      {
+        "hover_text@beacon.hover_text": {}
+      }
+    ]
+  },
+
+  "button_locked@beacon.image_atlas": {
+    "texture": "cozy/sprites/beacon/button_locked"
+  },
+
+  "button_locked_hover@beacon.image_atlas": {
+    "texture": "cozy/sprites/beacon/button_locked",
+    "controls": [
+      {
+        "hover_text@beacon.hover_text": {}
+      }
+    ]
+  },
+
+  "button_checked@beacon.image_atlas": {
+    "texture": "cozy/sprites/beacon/button_pressed"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "base_screen": {
+    "$settings_spatial_pattern_fix_enabled": false
+  },
+  
+  "screen_background": {
+    "alpha": 0.0
+  }
+}

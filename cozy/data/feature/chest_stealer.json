@@ -1,0 +1,1535 @@
+{
+  "namespace": "cozy_feature:chest_stealer",
+
+  "tab_toggle_stack_panel_small": {
+    "type": "panel",
+    "offset": ["-13.5%y", 0.0],
+    "size": ["100.0%cm", "100.0%"],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "all_item_slot_selected_bindings@cozy_feature:chest_stealer.all_item_slot_selected_bindings": {}
+      },
+      {
+        "container_place": {
+          "type": "panel",
+          "size": [27.0, 22.0],
+          "offset": [0.0, "9.0%"],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$stealer_mode": "take",
+          "$item_collection_name": "container_items",
+          "controls": [
+            {
+              "stealer_button_content@cozy_feature:chest_stealer.stealer_button_9x6_content": {}
+            },
+            {
+              "stealer_button_nope@cozy_feature:chest_stealer.stealer_button_nope": {}
+            }
+          ]
+        }
+      },
+      {
+        "container_drop": {
+          "type": "panel",
+          "size": [27.0, 22.0],
+          "offset": [0.0, "-12.0%"],
+          "$stealer_mode": "drop",
+          "$item_collection_name": "container_items",
+          "controls": [
+            {
+              "stealer_button_content@cozy_feature:chest_stealer.stealer_button_9x6_content": {}
+            },
+            {
+              "stealer_button_nope@cozy_feature:chest_stealer.stealer_button_nope": {}
+            }
+          ]
+        }
+      },
+      {
+        "inventory_place": {
+          "type": "panel",
+          "size": [27.0, 22.0],
+          "offset": [0.0, "5.0%"],
+          "$stealer_mode": "place",
+          "$item_collection_name": "inventory_items",
+          "controls": [
+            {
+              "stealer_button_content@cozy_feature:chest_stealer.stealer_button_9x3_content": {}
+            },
+            {
+              "stealer_button_nope@cozy_feature:chest_stealer.stealer_button_nope": {}
+            }
+          ]
+        }
+      },
+      {
+        "hotbar_place": {
+          "type": "panel",
+          "size": [27.0, 22.0],
+          "offset": [0.0, "-3.0%"],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "$stealer_mode": "place",
+          "$item_collection_name": "hotbar_items",
+          "controls": [
+            {
+              "stealer_button_content@cozy_feature:chest_stealer.stealer_button_9x1_content": {}
+            },
+            {
+              "stealer_button_nope@cozy_feature:chest_stealer.stealer_button_nope": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "tab_toggle_stack_panel_large": {
+    "type": "panel",
+    "offset": ["-10.0%y", 0.0],
+    "size": ["100.0%cm", "100.0%"],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "all_item_slot_selected_bindings@cozy_feature:chest_stealer.all_item_slot_selected_bindings": {}
+      },
+      {
+        "container_place": {
+          "type": "panel",
+          "size": [27.0, 22.0],
+          "offset": [0.0, "6.0%"],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$stealer_mode": "take",
+          "$item_collection_name": "container_items",
+          "controls": [
+            {
+              "stealer_button_content@cozy_feature:chest_stealer.stealer_button_9x6_content": {}
+            },
+            {
+              "stealer_button_nope@cozy_feature:chest_stealer.stealer_button_nope": {}
+            }
+          ]
+        }
+      },
+      {
+        "container_drop": {
+          "type": "panel",
+          "size": [27.0, 22.0],
+          "offset": [0.0, "2.0%"],
+          "$stealer_mode": "drop",
+          "$item_collection_name": "container_items",
+          "controls": [
+            {
+              "stealer_button_content@cozy_feature:chest_stealer.stealer_button_9x6_content": {}
+            },
+            {
+              "stealer_button_nope@cozy_feature:chest_stealer.stealer_button_nope": {}
+            }
+          ]
+        }
+      },
+      {
+        "inventory_place": {
+          "type": "panel",
+          "size": [27.0, 22.0],
+          "offset": [0.0, "16.0%"],
+          "$stealer_mode": "place",
+          "$item_collection_name": "inventory_items",
+          "controls": [
+            {
+              "stealer_button_content@cozy_feature:chest_stealer.stealer_button_9x3_content": {}
+            },
+            {
+              "stealer_button_nope@cozy_feature:chest_stealer.stealer_button_nope": {}
+            }
+          ]
+        }
+      },
+      {
+        "hotbar_place": {
+          "type": "panel",
+          "size": [27.0, 22.0],
+          "offset": [0.0, "-2.0%"],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "$stealer_mode": "place",
+          "$item_collection_name": "hotbar_items",
+          "controls": [
+            {
+              "stealer_button_content@cozy_feature:chest_stealer.stealer_button_9x1_content": {}
+            },
+            {
+              "stealer_button_nope@cozy_feature:chest_stealer.stealer_button_nope": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "stealer_button_collection_panel": {
+    "type": "collection_panel",
+    "size": ["100.0%", "100.0%"],
+    "layer": 10,
+    "collection_name": "$item_collection_name",
+    "controls": [
+      {
+        "0@cozy_feature:chest_stealer.stealer_button_template": {
+          "collection_index": "($index + 0)"
+        }
+      },
+      {
+        "1@cozy_feature:chest_stealer.stealer_button_template": {
+          "collection_index": "($index + 1)"
+        }
+      },
+      {
+        "2@cozy_feature:chest_stealer.stealer_button_template": {
+          "collection_index": "($index + 2)"
+        }
+      },
+      {
+        "3@cozy_feature:chest_stealer.stealer_button_template": {
+          "collection_index": "($index + 3)"
+        }
+      },
+      {
+        "4@cozy_feature:chest_stealer.stealer_button_template": {
+          "collection_index": "($index + 4)"
+        }
+      },
+      {
+        "5@cozy_feature:chest_stealer.stealer_button_template": {
+          "collection_index": "($index + 5)"
+        }
+      },
+      {
+        "6@cozy_feature:chest_stealer.stealer_button_template": {
+          "collection_index": "($index + 6)"
+        }
+      },
+      {
+        "7@cozy_feature:chest_stealer.stealer_button_template": {
+          "collection_index": "($index + 7)"
+        }
+      },
+      {
+        "8@cozy_feature:chest_stealer.stealer_button_template": {
+          "collection_index": "($index + 8)"
+        }
+      }
+    ]
+  },
+
+  "stealer_button_template@common.button": {
+    "$size": ["100.0%", "100.0%"],
+    "consume_event": false,
+    "ignored": "(not $cozy_container_chest_transfer)",
+    "consume_hover_events": false,
+    "sound_volume": 0.0,
+    "size": "$size",
+    "anims": [
+      "@cozy_animations:container.container_animation_size_exit_push",
+      "@cozy_animations:container.container_animation_size_exit_pop",
+      "@cozy_animations:container.container_animation_size_enter_pop",
+      "@cozy_animations:container.container_animation_size_enter_push",
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ],
+    "animation_reset_name": "screen_animation_reset",
+    "variables": [
+      {
+        "requires": "($stealer_mode = 'drop')",
+        "$pressed_button_name": "button.drop_all",
+        "$mapping_type": "double_pressed"
+      },
+      {
+        "requires": "($stealer_mode = 'place')",
+        "$pressed_button_name": "button.container_auto_place",
+        "$mapping_type": "pressed"
+      },
+      {
+        "requires": "($stealer_mode = 'take')",
+        "$pressed_button_name": "button.container_auto_place",
+        "$mapping_type": "pressed"
+      }
+    ],
+    "button_mappings": [
+      {
+        "consume_event": false,
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "$mapping_type"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_type": "global",
+        "binding_name": "#inventory_selected_item",
+        "binding_name_override": "#selected_item"
+      },
+      {
+        "binding_type": "collection",
+        "binding_name": "#item_id_aux",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "all_item_slot_selected_bindings",
+        "source_property_name": "#all_slot_selected_bindings",
+        "target_property_name": "#is_all_selected"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(((#is_all_selected = 0) or (#is_all_selected = #item_id_aux)) and ((#selected_item = -1) or (#selected_item = #item_id_aux)))",
+        //Thx to 橘猫sama
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "default": {
+          "type": "image",
+          "size": ["100.0%", "88.0%"],
+          "texture": "cozy/icon/chest_stealer/tab_default"
+        }
+      },
+      {
+        "hover": {
+          "type": "image",
+          "size": ["100.0%", "88.0%"],
+          "texture": "cozy/icon/chest_stealer/tab_hover"
+        }
+      },
+      {
+        "pressed": {
+          "type": "image",
+          "size": ["100.0%", "88.0%"],
+          "texture": "cozy/icon/chest_stealer/tab_hover"
+        }
+      },
+      {
+        "icon": {
+          "type": "image",
+          "size": ["55.55555555555%", "60.0%"],
+          "texture": "('cozy/icon/chest_stealer/' + $stealer_mode)"
+        }
+      }
+    ]
+  },
+
+  "stealer_button_nope@common.button": {
+    "ignored": "(not $cozy_container_chest_transfer)",
+    "$pressed_button_name": "button.nope",
+    "$size": ["100.0%", "100.0%"],
+    "consume_event": false,
+    "sound_volume": 0.0,
+    "size": "$size",
+    "anims": [
+      "@cozy_animations:container.container_animation_size_exit_push",
+      "@cozy_animations:container.container_animation_size_exit_pop",
+      "@cozy_animations:container.container_animation_size_enter_pop",
+      "@cozy_animations:container.container_animation_size_enter_push",
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ],
+    "animation_reset_name": "screen_animation_reset",
+    "controls": [
+      {
+        "default": {
+          "type": "image",
+          "size": ["100.0%", "88.0%"],
+          "texture": "cozy/icon/chest_stealer/tab_default"
+        }
+      },
+      {
+        "hover": {
+          "type": "image",
+          "size": ["100.0%", "88.0%"],
+          "texture": "cozy/icon/chest_stealer/tab_hover"
+        }
+      },
+      {
+        "pressed": {
+          "type": "image",
+          "size": ["100.0%", "88.0%"],
+          "texture": "cozy/icon/chest_stealer/tab_hover"
+        }
+      },
+      {
+        "icon": {
+          "type": "image",
+          "size": ["55.55555555555%", "60.0%"],
+          "texture": "('cozy/icon/chest_stealer/' + $stealer_mode)"
+        }
+      }
+    ]
+  },
+
+  "stealer_button_9x1_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "$stealer_mode|default": "",
+    "$item_collection_name|default": "",
+    "controls": [
+      {
+        "1@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 0
+        }
+      }
+    ]
+  },
+
+  "stealer_button_9x3_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "$stealer_mode|default": "",
+    "$item_collection_name|default": "",
+    "controls": [
+      {
+        "1@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 0
+        }
+      },
+      {
+        "2@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 9
+        }
+      },
+      {
+        "3@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 18
+        }
+      }
+    ]
+  },
+
+  "stealer_button_9x6_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "$stealer_mode|default": "",
+    "$item_collection_name|default": "",
+    "controls": [
+      {
+        "1@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 0
+        }
+      },
+      {
+        "2@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 9
+        }
+      },
+      {
+        "3@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 18
+        }
+      },
+      {
+        "4@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 27
+        }
+      },
+      {
+        "5@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 36
+        }
+      },
+      {
+        "6@cozy_feature:chest_stealer.stealer_button_collection_panel": {
+          "$index": 45
+        }
+      }
+    ]
+  },
+
+  "all_item_slot_selected_bindings": {
+    "type": "collection_panel",
+    "$item_collection_name": "container_items",
+    "collection_name": "$item_collection_name",
+    "controls": [
+      {
+        "container_item_slot_selected_bindings_grid@cozy_feature:chest_stealer.container_item_slot_selected_bindings_grid": {}
+      },
+      {
+        "inventory_item_slot_selected_bindings_grid@cozy_feature:chest_stealer.inventory_item_slot_selected_bindings_grid": {}
+      },
+      {
+        "hotbar_item_slot_selected_bindings_grid@cozy_feature:chest_stealer.hotbar_item_slot_selected_bindings_grid": {}
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_0",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_0"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_1",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_1"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_2",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_2"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_3",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_3"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_4",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_4"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_5",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_5"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_6",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_6"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_7",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_7"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_8",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_8"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_9",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_9"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_10",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_10"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_11",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_11"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_12",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_12"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_13",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_13"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_14",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_14"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_15",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_15"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_16",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_16"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_17",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_17"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_18",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_18"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_19",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_19"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_20",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_20"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_21",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_21"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_22",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_22"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_23",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_23"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_24",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_24"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_25",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_25"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_26",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_26"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_27",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_27"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_28",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_28"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_29",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_29"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_30",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_30"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_31",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_31"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_32",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_32"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_33",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_33"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_34",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_34"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_35",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_35"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_36",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_36"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_37",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_37"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_38",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_38"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_39",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_39"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_40",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_40"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_41",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_41"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_42",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_42"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_43",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_43"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_44",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_44"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_45",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_45"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_46",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_46"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_47",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_47"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_48",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_48"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_49",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_49"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_50",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_50"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_51",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_51"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_52",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_52"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "container_slot_53",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#container_selected_sub_53"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_0",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_0"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_1",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_1"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_2",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_2"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_3",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_3"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_4",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_4"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_5",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_5"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_6",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_6"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_7",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_7"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_8",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_8"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_9",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_9"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_10",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_10"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_11",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_11"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_12",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_12"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_13",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_13"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_14",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_14"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_15",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_15"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_16",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_16"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_17",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_17"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_18",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_18"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_19",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_19"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_20",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_20"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_21",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_21"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_22",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_22"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_23",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_23"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_24",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_24"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_25",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_25"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "inventory_slot_26",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#inventory_selected_sub_26"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "hotbar_slot_0",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#hotbar_selected_sub_0"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "hotbar_slot_1",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#hotbar_selected_sub_1"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "hotbar_slot_2",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#hotbar_selected_sub_2"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "hotbar_slot_3",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#hotbar_selected_sub_3"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "hotbar_slot_4",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#hotbar_selected_sub_4"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "hotbar_slot_5",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#hotbar_selected_sub_5"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "hotbar_slot_6",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#hotbar_selected_sub_6"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "hotbar_slot_7",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#hotbar_selected_sub_7"
+      },
+      {
+        "binding_type": "view",
+        "source_control_name": "hotbar_slot_8",
+        "source_property_name": "#is_selected_id_aux",
+        "target_property_name": "#hotbar_selected_sub_8"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#container_selected_sub_0 + #container_selected_sub_1 + #container_selected_sub_2 + #container_selected_sub_3 + #container_selected_sub_4 + #container_selected_sub_5 + #container_selected_sub_6 + #container_selected_sub_7 + #container_selected_sub_8 + #container_selected_sub_9 + #container_selected_sub_10 + #container_selected_sub_11 + #container_selected_sub_12 + #container_selected_sub_13 + #container_selected_sub_14 + #container_selected_sub_15 + #container_selected_sub_16 + #container_selected_sub_17 + #container_selected_sub_18 + #container_selected_sub_19 + #container_selected_sub_20 + #container_selected_sub_21 + #container_selected_sub_22 + #container_selected_sub_23 + #container_selected_sub_24 + #container_selected_sub_25 + #container_selected_sub_26 + #container_selected_sub_27 + #container_selected_sub_28 + #container_selected_sub_29 + #container_selected_sub_30 + #container_selected_sub_31 + #container_selected_sub_32 + #container_selected_sub_33 + #container_selected_sub_34 + #container_selected_sub_35 + #container_selected_sub_36 + #container_selected_sub_37 + #container_selected_sub_38 + #container_selected_sub_39 + #container_selected_sub_40 + #container_selected_sub_41 + #container_selected_sub_42 + #container_selected_sub_43 + #container_selected_sub_44 + #container_selected_sub_45 + #container_selected_sub_46 + #container_selected_sub_47 + #container_selected_sub_48 + #container_selected_sub_49 + #container_selected_sub_50 + #container_selected_sub_51 + #container_selected_sub_52 + #container_selected_sub_53)",
+        "target_property_name": "#container_selected_bindings"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#inventory_selected_sub_0 + #inventory_selected_sub_1 + #inventory_selected_sub_2 + #inventory_selected_sub_3 + #inventory_selected_sub_4 + #inventory_selected_sub_5 + #inventory_selected_sub_6 + #inventory_selected_sub_7 + #inventory_selected_sub_8 + #inventory_selected_sub_9 + #inventory_selected_sub_10 + #inventory_selected_sub_11 + #inventory_selected_sub_12 + #inventory_selected_sub_13 + #inventory_selected_sub_14 + #inventory_selected_sub_15 + #inventory_selected_sub_16 + #inventory_selected_sub_17 + #inventory_selected_sub_18 + #inventory_selected_sub_19 + #inventory_selected_sub_20 + #inventory_selected_sub_21 + #inventory_selected_sub_22 + #inventory_selected_sub_23 + #inventory_selected_sub_24 + #inventory_selected_sub_25 + #inventory_selected_sub_26)",
+        "target_property_name": "#inventory_selected_bindings"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#hotbar_selected_sub_0 + #hotbar_selected_sub_1 + #hotbar_selected_sub_2 + #hotbar_selected_sub_3 + #hotbar_selected_sub_4 + #hotbar_selected_sub_5 + #hotbar_selected_sub_6 + #hotbar_selected_sub_7 + #hotbar_selected_sub_8)",
+        "target_property_name": "#hotbar_selected_bindings"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#container_selected_bindings + #inventory_selected_bindings + #hotbar_selected_bindings)",
+        "target_property_name": "#all_slot_selected_bindings"
+      }
+    ]
+  },
+
+  "container_item_slot_selected_bindings_grid": {
+    "type": "collection_panel",
+    "$item_collection_name": "container_items",
+    "collection_name": "$item_collection_name",
+    "controls": [
+      {
+        "container_slot_0@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 0
+        }
+      },
+      {
+        "container_slot_1@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 1
+        }
+      },
+      {
+        "container_slot_2@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 2
+        }
+      },
+      {
+        "container_slot_3@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 3
+        }
+      },
+      {
+        "container_slot_4@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 4
+        }
+      },
+      {
+        "container_slot_5@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 5
+        }
+      },
+      {
+        "container_slot_6@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 6
+        }
+      },
+      {
+        "container_slot_7@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 7
+        }
+      },
+      {
+        "container_slot_8@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 8
+        }
+      },
+      {
+        "container_slot_9@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 9
+        }
+      },
+      {
+        "container_slot_10@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 10
+        }
+      },
+      {
+        "container_slot_11@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 11
+        }
+      },
+      {
+        "container_slot_12@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 12
+        }
+      },
+      {
+        "container_slot_13@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 13
+        }
+      },
+      {
+        "container_slot_14@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 14
+        }
+      },
+      {
+        "container_slot_15@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 15
+        }
+      },
+      {
+        "container_slot_16@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 16
+        }
+      },
+      {
+        "container_slot_17@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 17
+        }
+      },
+      {
+        "container_slot_18@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 18
+        }
+      },
+      {
+        "container_slot_19@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 19
+        }
+      },
+      {
+        "container_slot_20@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 20
+        }
+      },
+      {
+        "container_slot_21@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 21
+        }
+      },
+      {
+        "container_slot_22@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 22
+        }
+      },
+      {
+        "container_slot_23@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 23
+        }
+      },
+      {
+        "container_slot_24@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 24
+        }
+      },
+      {
+        "container_slot_25@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 25
+        }
+      },
+      {
+        "container_slot_26@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 26
+        }
+      },
+      {
+        "container_slot_27@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 27
+        }
+      },
+      {
+        "container_slot_28@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 28
+        }
+      },
+      {
+        "container_slot_29@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 29
+        }
+      },
+      {
+        "container_slot_30@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 30
+        }
+      },
+      {
+        "container_slot_31@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 31
+        }
+      },
+      {
+        "container_slot_32@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 32
+        }
+      },
+      {
+        "container_slot_33@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 33
+        }
+      },
+      {
+        "container_slot_34@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 34
+        }
+      },
+      {
+        "container_slot_35@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 35
+        }
+      },
+      {
+        "container_slot_36@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 36
+        }
+      },
+      {
+        "container_slot_37@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 37
+        }
+      },
+      {
+        "container_slot_38@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 38
+        }
+      },
+      {
+        "container_slot_39@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 39
+        }
+      },
+      {
+        "container_slot_40@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 40
+        }
+      },
+      {
+        "container_slot_41@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 41
+        }
+      },
+      {
+        "container_slot_42@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 42
+        }
+      },
+      {
+        "container_slot_43@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 43
+        }
+      },
+      {
+        "container_slot_44@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 44
+        }
+      },
+      {
+        "container_slot_45@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 45
+        }
+      },
+      {
+        "container_slot_46@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 46
+        }
+      },
+      {
+        "container_slot_47@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 47
+        }
+      },
+      {
+        "container_slot_48@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 48
+        }
+      },
+      {
+        "container_slot_49@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 49
+        }
+      },
+      {
+        "container_slot_50@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 50
+        }
+      },
+      {
+        "container_slot_51@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 51
+        }
+      },
+      {
+        "container_slot_52@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 52
+        }
+      },
+      {
+        "container_slot_53@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 53
+        }
+      }
+    ]
+  },
+
+  "inventory_item_slot_selected_bindings_grid": {
+    "type": "collection_panel",
+    "$item_collection_name": "inventory_items",
+    "collection_name": "$item_collection_name",
+    "controls": [
+      {
+        "inventory_slot_0@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 0
+        }
+      },
+      {
+        "inventory_slot_1@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 1
+        }
+      },
+      {
+        "inventory_slot_2@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 2
+        }
+      },
+      {
+        "inventory_slot_3@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 3
+        }
+      },
+      {
+        "inventory_slot_4@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 4
+        }
+      },
+      {
+        "inventory_slot_5@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 5
+        }
+      },
+      {
+        "inventory_slot_6@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 6
+        }
+      },
+      {
+        "inventory_slot_7@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 7
+        }
+      },
+      {
+        "inventory_slot_8@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 8
+        }
+      },
+      {
+        "inventory_slot_9@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 9
+        }
+      },
+      {
+        "inventory_slot_10@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 10
+        }
+      },
+      {
+        "inventory_slot_11@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 11
+        }
+      },
+      {
+        "inventory_slot_12@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 12
+        }
+      },
+      {
+        "inventory_slot_13@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 13
+        }
+      },
+      {
+        "inventory_slot_14@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 14
+        }
+      },
+      {
+        "inventory_slot_15@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 15
+        }
+      },
+      {
+        "inventory_slot_16@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 16
+        }
+      },
+      {
+        "inventory_slot_17@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 17
+        }
+      },
+      {
+        "inventory_slot_18@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 18
+        }
+      },
+      {
+        "inventory_slot_19@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 19
+        }
+      },
+      {
+        "inventory_slot_20@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 20
+        }
+      },
+      {
+        "inventory_slot_21@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 21
+        }
+      },
+      {
+        "inventory_slot_22@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 22
+        }
+      },
+      {
+        "inventory_slot_23@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 23
+        }
+      },
+      {
+        "inventory_slot_24@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 24
+        }
+      },
+      {
+        "inventory_slot_25@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 25
+        }
+      },
+      {
+        "inventory_slot_26@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 26
+        }
+      }
+    ]
+  },
+
+  "hotbar_item_slot_selected_bindings_grid": {
+    "type": "collection_panel",
+    "$item_collection_name": "hotbar_items",
+    "collection_name": "$item_collection_name",
+    "controls": [
+      {
+        "hotbar_slot_0@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 0
+        }
+      },
+      {
+        "hotbar_slot_1@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 1
+        }
+      },
+      {
+        "hotbar_slot_2@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 2
+        }
+      },
+      {
+        "hotbar_slot_3@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 3
+        }
+      },
+      {
+        "hotbar_slot_4@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 4
+        }
+      },
+      {
+        "hotbar_slot_5@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 5
+        }
+      },
+      {
+        "hotbar_slot_6@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 6
+        }
+      },
+      {
+        "hotbar_slot_7@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 7
+        }
+      },
+      {
+        "hotbar_slot_8@cozy_feature:chest_stealer.item_slot_selected_bindings_template": {
+          "collection_index": 8
+        }
+      }
+    ]
+  },
+
+  "item_slot_selected_bindings_template": {
+    "type": "panel",
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_type": "collection",
+        "binding_name": "#item_id_aux",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_type": "collection",
+        "binding_name": "#is_selected_slot",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#item_id_aux * #is_selected_slot)",
+        "target_property_name": "#is_selected_id_aux"
+      }
+    ]
+  }
+}

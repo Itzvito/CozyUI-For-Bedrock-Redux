@@ -1,0 +1,48 @@
+{
+  "namespace": "cozy_feature:hide_hud",
+
+  "hide_hud_button": {
+    "type": "input_panel",
+    "prevent_touch_input": true,
+    "ignored": "(not $cozy_hide_hud_button)",
+    "size": [24.0, 24.0],
+    "layer": 5,
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "controls": [
+      {
+        "button@common.button": {
+          "sound_name": "$cozy_button_sound_name",
+          "sound_volume": "$cozy_button_sound_volume",
+          "sound_pitch": 1.0,
+          "$pressed_button_name": "button.hide_gui_all",
+          "size": ["100.0%", "100.0%"],
+          "controls": [
+            {
+              "default@cozy_feature:hide_hud.hide_hud_button_layout": {}
+            },
+            {
+              "pressed@cozy_feature:hide_hud.hide_hud_button_layout": {}
+            },
+            {
+              "hover@cozy_feature:hide_hud.hide_hud_button_layout": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "hide_hud_button_layout": {
+    "type": "image",
+    "size": [22.0, 22.0],
+    "texture": "cozy/icon/hide_hud",
+    "bindings": [
+      {
+        "binding_name": "#hud_visible",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  }
+}

@@ -1,0 +1,576 @@
+{
+  "namespace": "cozy_screen:start",
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "title_panel_content@common_art.start_title_panel_content": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [0.0, 10.0]
+        }
+      },
+      {
+        "button_content@cozy_screen:start.button_content": {}
+      },
+      {
+        "version_label": {
+          "type": "label",
+          "color": "$main_header_text_color",
+          "layer": 2,
+          "text": "#version",
+          "size": ["default", 10.0],
+          "font_type": "$cozy_global_font_type",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "bindings": [
+            {
+              "binding_name": "#version"
+            }
+          ]
+        }
+      },
+      {
+        "copyright_label": {
+          "type": "label",
+          "color": "$main_header_text_color",
+          "layer": 2,
+          "font_type": "$cozy_global_font_type",
+          "text": "menu.copyright",
+          "size": ["default", 10.0],
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left"
+        }
+      },
+      {
+        "gathering@start.gathering_panel": {}
+      }
+    ]
+  },
+  "button_content": {
+    "type": "stack_panel",
+    "size": ["100.0%cm", "100.0%c"],
+    "offset": [25.0, 15.0],
+    "controls": [
+      {
+        "playgame@cozy_screen:start.big_button_template": {
+          "$pressed_button_name": "$play_button_target",
+          "$button_text": "menu.play"
+        }
+      },
+      {
+        "padding_1": {
+          "type": "panel",
+          "ignored": "(not $cozy_title_screen_server_button)",
+          "size": [0.0, 3.0]
+        }
+      },
+      {
+        "sever@cozy_screen:start.big_button_template": {
+          "ignored": "(not $cozy_title_screen_server_button)",
+          "$pressed_button_name": "button.menu_servers",
+          "$button_text": "menu.servers"
+        }
+      },
+      {
+        "padding_2": {
+          "type": "panel",
+          "size": [0.0, 3.0]
+        }
+      },
+      {
+        "store@cozy_screen:start.big_button_template": {
+          "$pressed_button_name": "button.menu_store",
+          "$button_text": "menu.store"
+        }
+      },
+      {
+        "padding_3": {
+          "type": "panel",
+          "size": [0.0, 3.0]
+        }
+      },
+      {
+        "skin@cozy_screen:start.big_button_template": {
+          "$pressed_button_name": "button.menu_skins",
+          "$button_text": "profileScreen.header"
+        }
+      },
+      {
+        "padding_4": {
+          "type": "panel",
+          "size": [0.0, 3.0]
+        }
+      },
+      {
+        "horizontal_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100.0%c", "100.0%cm"],
+          "controls": [
+            {
+              "😁😁😁": {
+                "type": "panel",
+                "size": ["100.0%c", "100.0%cm"],
+                "controls": [
+                  {
+                    "😁😁😁": {
+                      "type": "stack_panel",
+                      "orientation": "horizontal",
+                      "size": ["100.0%c", "100.0%cm"],
+                      "offset": [-23.0, 0.0],
+                      "controls": [
+                        {
+                          "notification@cozy_screen:start.ssmall_button_template": {
+                            "$pressed_button_name": "button.menu_inbox",
+                            "$icon": "notification"
+                          }
+                        },
+                        {
+                          "padding_1": {
+                            "type": "panel",
+                            "size": [3.0, 3.0]
+                          }
+                        },
+                        {
+                          "setting@cozy_screen:start.small_button_template": {
+                            "$pressed_button_name": "button.menu_settings",
+                            "$button_text": "menu.settings"
+                          }
+                        },
+                        {
+                          "padding_2": {
+                            "type": "panel",
+                            "size": [3.0, 3.0]
+                          }
+                        },
+                        {
+                          "exit@cozy_screen:start.small_button_template": {
+                            "$pressed_button_name": "button.menu_exit",
+                            "$button_text": "progressScreen.dialog.button.leave"
+                          }
+                        },
+                        {
+                          "padding_3": {
+                            "type": "panel",
+                            "size": [3.0, 3.0]
+                          }
+                        },
+                        {
+                          "profile@cozy_screen:start.ssmall_button_template": {
+                            "$pressed_button_name": "button.menu_profile",
+                            "$icon": "profile"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "big_button_template@common.button": {
+    "size": ["200.0px", "20.0px"],
+    "controls": [
+      {
+        "button_text": {
+          "type": "label",
+          "layer": 5,
+          "text": "$button_text",
+          "font_scale_factor": 1.0
+        }
+      },
+      {
+        "default": {
+          "type": "image",
+          "nineslice_size": 0,
+          "texture": "cozy/sprites/start/big_button_default"
+        }
+      },
+      {
+        "pressed@big_button_animation_hover": {}
+      },
+      {
+        "hover@big_button_animation_hover": {}
+      }
+    ]
+  },
+  "big_button_animation_hover": {
+    "type": "panel",
+    "controls": [
+      {
+        "default": {
+          "type": "panel",
+          "ignored": "$cozy_low_perf_button_hover_animation",
+          "controls": [
+            {
+              "hover_animation": {
+                "type": "image",
+                "ignored": "(not $cozy_button_hover_animation)",
+                "texture": "cozy/sprites/start/big_button_animation_hover",
+                "size": ["100.0%", "100.0%"],
+                "uv_size": [800.0, 80.0],
+                "nineslice_size": 0,
+                "uv": "@cozy_screen:start.big_button_hover_animation",
+                "disable_anim_fast_forward": true
+              }
+            },
+            {
+              "hover": {
+                "type": "image",
+                "ignored": "$cozy_button_hover_animation",
+                "texture": "cozy/sprites/start/big_button_hover",
+                "size": ["100.0%", "100.0%"],
+                "nineslice_size": 0
+              }
+            }
+          ]
+        }
+      },
+      {
+        "low_performance": {
+          "type": "panel",
+          "ignored": "(not $cozy_low_perf_button_hover_animation)",
+          "controls": [
+            {
+              "big_button_frame@cozy_screen:start.big_button_frame": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "big_button_hover_animation": {
+    "anim_type": "flip_book",
+    "initial_uv": [0, 0],
+    "frame_count": 16,
+    "frame_step": 800,
+    "fps": 16,
+    "reversible": true,
+    "easing": "linear"
+  },
+  "small_button_template@common.button": {
+    "size": ["97.5px", "20.0px"],
+    "controls": [
+      {
+        "button_text": {
+          "type": "label",
+          "layer": 5,
+          "text": "$button_text",
+          "font_scale_factor": 1.0
+        }
+      },
+      {
+        "default": {
+          "type": "image",
+          "nineslice_size": 0,
+          "texture": "cozy/sprites/start/small_button_default"
+        }
+      },
+      {
+        "pressed@small_button_animation_hover": {}
+      },
+      {
+        "hover@small_button_animation_hover": {}
+      }
+    ]
+  },
+  "ssmall_button_template@common.button": {
+    "size": ["20.0px", "20.0px"],
+    "controls": [
+      {
+        "icon": {
+          "type": "image",
+          "layer": 5,
+          "size": ["75.0%", "75.0%"],
+          "texture": "('cozy/sprites/start/' + $icon)"
+        }
+      },
+      {
+        "default": {
+          "type": "image",
+          "nineslice_size": 0,
+          "texture": "cozy/sprites/square_button_default"
+        }
+      },
+      {
+        "pressed": {
+          "type": "image",
+          "nineslice_size": 0,
+          "texture": "cozy/sprites/square_button_hover"
+        }
+      },
+      {
+        "hover": {
+          "type": "image",
+          "nineslice_size": 0,
+          "texture": "cozy/sprites/square_button_hover"
+        }
+      }
+    ]
+  },
+  "small_button_animation_hover": {
+    "type": "panel",
+    "controls": [
+      {
+        "default": {
+          "type": "panel",
+          "ignored": "$cozy_low_perf_button_hover_animation",
+          "controls": [
+            {
+              "hover_animation": {
+                "type": "image",
+                "ignored": "(not $cozy_button_hover_animation)",
+                "texture": "cozy/sprites/start/small_button_animation_hover",
+                "size": ["100.0%", "100.0%"],
+                "uv_size": [400.0, 80.0],
+                "nineslice_size": 0,
+                "uv": "@cozy_screen:start.small_button_hover_animation",
+                "disable_anim_fast_forward": true
+              }
+            },
+            {
+              "hover": {
+                "type": "image",
+                "ignored": "$cozy_button_hover_animation",
+                "texture": "cozy/sprites/start/small_button_hover",
+                "size": ["100.0%", "100.0%"],
+                "nineslice_size": 0
+              }
+            }
+          ]
+        }
+      },
+      {
+        "low_performance": {
+          "type": "panel",
+          "ignored": "(not $cozy_low_perf_button_hover_animation)",
+          "controls": [
+            {
+              "small_button_frame@cozy_screen:start.small_button_frame": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "small_button_hover_animation": {
+    "anim_type": "flip_book",
+    "initial_uv": [0, 0],
+    "frame_count": 16,
+    "frame_step": 400,
+    "fps": 16,
+    "reversible": true,
+    "easing": "linear"
+  },
+  "big_button_frame": {
+    "type": "panel",
+    "$total_frames": 16,
+    "$frame_duration": 0.1,
+    "controls": [
+      {
+        "0@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_0",
+          "$frame_index": 0
+        }
+      },
+      {
+        "1@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_1",
+          "$frame_index": 1
+        }
+      },
+      {
+        "2@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_2",
+          "$frame_index": 2
+        }
+      },
+      {
+        "3@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_3",
+          "$frame_index": 3
+        }
+      },
+      {
+        "4@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_4",
+          "$frame_index": 4
+        }
+      },
+      {
+        "5@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_5",
+          "$frame_index": 5
+        }
+      },
+      {
+        "6@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_6",
+          "$frame_index": 6
+        }
+      },
+      {
+        "7@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_7",
+          "$frame_index": 7
+        }
+      },
+      {
+        "8@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_8",
+          "$frame_index": 8
+        }
+      },
+      {
+        "9@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_9",
+          "$frame_index": 9
+        }
+      },
+      {
+        "10@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_10",
+          "$frame_index": 10
+        }
+      },
+      {
+        "11@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_11",
+          "$frame_index": 11
+        }
+      },
+      {
+        "12@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_12",
+          "$frame_index": 12
+        }
+      },
+      {
+        "13@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_13",
+          "$frame_index": 13
+        }
+      },
+      {
+        "14@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_14",
+          "$frame_index": 14
+        }
+      },
+      {
+        "15@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/big/big_button_animation_hover_15",
+          "$frame_index": 15
+        }
+      }
+    ]
+  },
+  "small_button_frame": {
+    "type": "panel",
+    "$total_frames": 16,
+    "$frame_duration": 0.1,
+    "controls": [
+      {
+        "0@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_0",
+          "$frame_index": 0
+        }
+      },
+      {
+        "1@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_1",
+          "$frame_index": 1
+        }
+      },
+      {
+        "2@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_2",
+          "$frame_index": 2
+        }
+      },
+      {
+        "3@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_3",
+          "$frame_index": 3
+        }
+      },
+      {
+        "4@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_4",
+          "$frame_index": 4
+        }
+      },
+      {
+        "5@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_5",
+          "$frame_index": 5
+        }
+      },
+      {
+        "6@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_6",
+          "$frame_index": 6
+        }
+      },
+      {
+        "7@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_7",
+          "$frame_index": 7
+        }
+      },
+      {
+        "8@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_8",
+          "$frame_index": 8
+        }
+      },
+      {
+        "9@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_9",
+          "$frame_index": 9
+        }
+      },
+      {
+        "10@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_10",
+          "$frame_index": 10
+        }
+      },
+      {
+        "11@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_11",
+          "$frame_index": 11
+        }
+      },
+      {
+        "12@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_12",
+          "$frame_index": 12
+        }
+      },
+      {
+        "13@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_13",
+          "$frame_index": 13
+        }
+      },
+      {
+        "14@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_14",
+          "$frame_index": 14
+        }
+      },
+      {
+        "15@cozy_common:container.frame_image": {
+          "texture": "cozy/sprites/start/low_performance/small/small_button_animation_hover_15",
+          "$frame_index": 15
+        }
+      }
+    ]
+  }
+}

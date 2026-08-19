@@ -1,0 +1,61 @@
+{
+  "selected_pack_button": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "pack_banner@resource_packs.pack_banner": {}
+          }
+        ]
+      }
+    ]
+  },
+  
+  "available_pack_button": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "pack_banner@resource_packs.pack_banner": {}
+          }
+        ]
+      }
+    ]
+  },
+  
+  "pack_banner": {
+    "type": "panel",
+    "size": ["100.0%", 0.0],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "pack_banner": {
+          "type": "image",
+          "fill": true,
+          "texture": "cozy/icon/pack_banner",
+          "size": ["100.0%", "44.0px"],
+          "offset": [1.0, -1.0],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "bindings": [
+            {
+              "binding_type": "collection",
+              "binding_name": "#name",
+              "binding_collection_name": "$button_collection_name"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#name = $pack_name)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Version: 1.1.4\n移植: OtrEndPluer\nQQ下载&问题反馈群: 1091237699",
+    "name": "§fCozyUI §6Redux§f",
+    "uuid": "6f747245-6e64-706c-7565-720000000000",
+    "version": [1, 1, 4],
+    "min_engine_version": [1, 13, 0]
+  },
+  "modules": [
+    {
+      "description": "Nothing",
+      "type": "resources",
+      "uuid": "6f747245-6e64-706c-7565-720000000001",
+      "version": [1, 1, 4]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "@Fogg05",
+      "@OtrEndPluer"
+    ],
+    "license": "GNU General Public License version 3.0",
+    "github": "https://github.com/Itzvito/CozyUI-ForBedrock",
+    "url": "https://b23.tv/NQZ80P9"
+  }
+}
+
+// By OtrEndPluer. 

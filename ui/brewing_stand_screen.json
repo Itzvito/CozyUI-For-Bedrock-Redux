@@ -1,0 +1,17 @@
+{
+  "brewing_stand_screen@cozy_common:container.container_screen_common": {
+    "$container|default": "brewing_stand",
+    "$screen_content": "cozy_screen:brewing_stand.screen_content",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "variables": [
+      {
+        "requires": "$desktop_screen",
+        "$screen_content": "cozy_screen:brewing_stand.screen_content"
+      },
+      {
+        "requires": "$pocket_screen",
+        "$screen_content": "cozy_screen:brewing_stand.screen_content"
+      }
+    ]
+  }
+}

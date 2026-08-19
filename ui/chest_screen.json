@@ -1,0 +1,75 @@
+{
+  "small_chest_screen@crafting.inventory_screen_base": {
+    "$container": "small_chest",
+    "$screen_content": "cozy_screen:chest.small_chest_screen_panel",
+    "$screen_bg_content": "common.empty_panel",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "$screen_animations": [
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ]
+  },
+  
+  "large_chest_screen@crafting.inventory_screen_base": {
+    "$container": "large_chest",
+    "$screen_content": "cozy_screen:chest.large_chest_screen_panel",
+    "$screen_bg_content": "common.empty_panel",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "$screen_animations": [
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ]
+  },
+  
+  "ender_chest_screen@crafting.inventory_screen_base": {
+    "$screen_content": "cozy_screen:chest.small_chest_screen_panel",
+    "$screen_bg_content": "common.empty_panel",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "$screen_animations": [
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ],
+    "variables": [
+      {
+        "requires": "$cozy_ender_chest_texture",
+        "$container": "new_ender_chest"
+      },
+      {
+        "requires": "(not $cozy_ender_chest_texture)",
+        "$container": "ender_chest"
+      }
+    ]
+  },
+  
+  "shulker_box_screen@crafting.inventory_screen_base": {
+    "$container": "shulker_box",
+    "$screen_content": "cozy_screen:chest.small_chest_screen_panel",
+    "$screen_bg_content": "common.empty_panel",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "$screen_animations": [
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ]
+  },
+  
+  "barrel_screen@crafting.inventory_screen_base": {
+    "$container": "small_chest",
+    "$screen_content": "cozy_screen:chest.small_chest_screen_panel",
+    "$screen_bg_content": "common.empty_panel",
+    "close_on_player_hurt": "$cozy_close_container_on_hurt",
+    "$screen_animations": [
+      "@cozy_animations:container.container_animation_alpha_exit_push",
+      "@cozy_animations:container.container_animation_alpha_exit_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_pop",
+      "@cozy_animations:container.container_animation_alpha_enter_push"
+    ]
+  }
+}

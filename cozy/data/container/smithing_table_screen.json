@@ -1,0 +1,281 @@
+{
+  "namespace": "cozy_screen:smithing_table",
+
+  "screen_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "layer": 10,
+    "controls": [
+      {
+        "screen_panel@cozy_common:container.screen_base": {
+          "$size": [176.0, 166.0],
+          "controls": [
+            {
+              "container_exit_button@cozy_common:container.container_exit_button": {}
+            },
+            {
+              "smithing_table_panel_top_half@cozy_screen:smithing_table.smithing_table_panel_top_half": {}
+            },
+            {
+              "hotbar_inventory_content@cozy_common:container.hotbar_inventory_content": {}
+            },
+            {
+              "container_utils_content@cozy_common:container.container_utils_content": {}
+            },
+            {
+              "tab_toggle_stack_panel@cozy_feature:quick_item.tab_toggle_stack_panel": {}
+            },
+            {
+              "gamepad_cursor@cozy_common:container.gamepad_cursor_button": {}
+            },
+            {
+              "flying_item_renderer@common.flying_item_renderer": {
+                "layer": 20
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+            }
+          ]
+        }
+      },
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "selected_item_details_factory@cozy_common:container.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      }
+    ]
+  },
+
+  "smithing_table_panel_top_half": {
+    "type": "panel",
+    "size": ["100.0%", "40.0%"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100.0%c", "100.0%cm"],
+          "offset": ["4.5143%", "35.0%"],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "controls": [
+            {
+              "template_item@cozy_common:container.container_item": {
+                "$item_collection_name": "smithing_table_template_items"
+              }
+            },
+            {
+              "input_item@cozy_common:container.container_item": {
+                "$item_collection_name": "smithing_table_input_items"
+              }
+            },
+            {
+              "material_item@cozy_common:container.container_item": {
+                "$item_collection_name": "smithing_table_material_items"
+              }
+            },
+            {
+              "crossout_panel": {
+                "type": "panel",
+                "size": ["100.0%c + 14.0px", "100.0%sm"],
+                "controls": [
+                  {
+                    "crossout": {
+                      "type": "button",
+                      "size": "$size",
+                      "$size": [18.0, 12.0],
+                      "layer": 12,
+                      "anims": [
+                        "@cozy_animations:container.container_animation_size_exit_push",
+                        "@cozy_animations:container.container_animation_size_exit_pop",
+                        "@cozy_animations:container.container_animation_size_enter_pop",
+                        "@cozy_animations:container.container_animation_size_enter_push"
+                      ],
+                      "animation_reset_name": "screen_animation_reset",
+                      "hover_control": "hover",
+                      "controls": [
+                        {
+                          "default": {
+                            "type": "image",
+                            "texture": "cozy/sprites/smithing_table/crossout",
+                            "size": ["100.0%", "100.0%"],
+                            "bindings": [
+                              {
+                                "binding_name": "#cross_out_icon",
+                                "binding_name_override": "#visible"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "hover@common.hover_text": {
+                            "layer": 29,
+                            "$hover_text_max_width": 500,
+                            "bindings": [
+                              {
+                                "binding_name": "#no_result_arrow_tooltip",
+                                "binding_name_override": "#hover_text"
+                              },
+                              {
+                                "binding_name": "#cross_out_icon",
+                                "binding_name_override": "#visible"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "result_panel": {
+                "type": "panel",
+                "size": ["69.23076923076%c", "69.23076923076%c"],
+                "controls": [
+                  {
+                    "result_item@cozy_common:container.container_item": {
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "$size": [26.0, 26.0],
+                      "$item_collection_name": "smithing_table_result_items",
+                      "$button_ref": "cozy_screen:smithing_table.smithing_table_output_slot_button"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "result_item_preview_inner@cozy_screen:smithing_table.result_item_preview_inner": {}
+      }
+    ]
+  },
+
+  "result_item_preview_inner": {
+    "type": "panel",
+    "size": ["25.0px", "25.0px"],
+    "offset": ["-12.0%", "-2.5%"],
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "layer": 10,
+    "controls": [
+      {
+        "smithing_preview_renderer": {
+          "type": "custom",
+          "renderer": "equipment_preview_renderer",
+          "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@common.screen_exit_size_animation_push",
+            "@common.screen_exit_size_animation_pop",
+            "@common.screen_entrance_size_animation_push",
+            "@common.screen_entrance_size_animation_pop"
+          ],
+          "layer": 8,
+          "rotation_x": 30.0,
+          "rotation_y": -30.0,
+          "bindings": [
+            {
+              "binding_name": "#item_id_aux",
+              "binding_type": "collection",
+              "binding_collection_name": "smithing_table_result_items"
+            },
+            {
+              "binding_name": "#item_custom_color",
+              "binding_type": "collection",
+              "binding_collection_name": "smithing_table_result_items"
+            },
+            {
+              "binding_name": "#armor_trim_pattern",
+              "binding_type": "collection",
+              "binding_collection_name": "smithing_table_result_items"
+            },
+            {
+              "binding_name": "#armor_trim_material",
+              "binding_type": "collection",
+              "binding_collection_name": "smithing_table_result_items"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "smithing_table_output_slot_button@cozy_common:container.container_slot_button_prototype": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.smithing_table_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.smithing_table_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_back",
+        "to_button_id": "button.smithing_table_take_all_place_all",
+        "mapping_type": "pressed",
+        "ignored": "(not $is_ps4)"
+      },
+      {
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.smithing_table_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.smithing_table_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_auto_place",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop",
+        "to_button_id": "button.drop_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop_all",
+        "to_button_id": "button.drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.smithing_table_coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.smithing_table_coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      {
+        "to_button_id": "button.container_slot_hovered",
+        "mapping_type": "pressed"
+      }
+    ]
+  }
+}

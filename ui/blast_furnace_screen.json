@@ -1,0 +1,18 @@
+{
+  "namespace": "blast_furnace",
+  
+  "blast_furnace_screen@furnace.furnace_screen": {
+    "$container": "blast_furnace",
+    "$screen_content": "cozy_screen:furnace.blast_furnace_screen",
+    "variables": [
+			{
+				"requires": "$cozy_furnace_recipe_screen",
+				"$screen_content": "cozy_screen:furnace_recipe.screen_content"
+			},
+			{
+				"requires": "(not $cozy_furnace_recipe_screen)",
+				"$screen_content": "cozy_screen:furnace.screen_content"
+			}
+		]
+  }
+}

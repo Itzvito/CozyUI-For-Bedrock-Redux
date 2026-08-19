@@ -1,0 +1,112 @@
+{
+  "namespace": "cozy_feature:quick_item",
+
+  "tab_toggle_stack_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "offset": ["84.0%x", "-3.5px"],
+    "size": ["100.0%cm", "100.0%c"],
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "ignored": "(not $cozy_container_quick_move)",
+    "controls": [
+      {
+        "normal@cozy_feature:quick_item.quick_item_toggle": {
+          "$toggle_group_forced_index": 0,
+          "$icon": "normal",
+          "$toggle_default_state": true,
+          "$toggle_view_binding_name": "cozy_feature:quick_item.normal_toggle"
+        }
+      },
+      {
+        "auto_place@cozy_feature:quick_item.quick_item_toggle": {
+          "$toggle_group_forced_index": 1,
+          "$icon": "auto_place",
+          "$toggle_view_binding_name": "cozy_feature:quick_item.auto_place_toggle"
+        }
+      },
+      {
+        "auto_drop@cozy_feature:quick_item.quick_item_toggle": {
+          "$toggle_group_forced_index": 2,
+          "$icon": "auto_drop",
+          "$toggle_view_binding_name": "cozy_feature:quick_item.auto_drop_toggle"
+        }
+      }
+    ]
+  },
+
+  "quick_item_toggle@cozy_feature:quick_item.quick_item_toggle_panel": {
+    "$size": [27.0, 22.0],
+    "size": "$size",
+    "anims": [
+      "@cozy_animations:container.container_animation_size_exit_push",
+      "@cozy_animations:container.container_animation_size_exit_pop",
+      "@cozy_animations:container.container_animation_size_enter_pop",
+      "@cozy_animations:container.container_animation_size_enter_push"
+    ],
+    "animation_reset_name": "screen_animation_reset",
+    "$radio_toggle_group": true,
+    "$toggle_name": "skxokxndnsod",
+    "$toggle_group_default_selected": 0,
+    "$toggle_tab_focus_binding_type": "global",
+    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+    "$toggle_on_hover_binding_type": "global",
+    "$toggle_on_hover_binding_name": "#toggle_on_hover",
+    "$toggle_tts_toggle_on_text": "accessibility.state.selected",
+    "$toggle_tts_toggle_off_text": "accessibility.state.unselected",
+    "$toggle_tts_name": "accessibility.tab.tts.title"
+  },
+
+  "quick_item_toggle_panel": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "$toggle_view_binding_name|default": "this_toggle",
+    "$template_toggle|default": "cozy_feature:quick_item.quick_item_toggle_template",
+    "controls": [
+      {
+        "$toggle_view_binding_name@$template_toggle": {}
+      }
+    ]
+  },
+
+  "quick_item_toggle_template@common.toggle": {
+    "$unchecked_control|default": "cozy_feature:quick_item.tab_default",
+    "$checked_control|default": "cozy_feature:quick_item.tab_hover",
+    "$unchecked_hover_control|default": "cozy_feature:quick_item.tab_default",
+    "$checked_hover_control|default": "cozy_feature:quick_item.tab_hover",
+    "$unchecked_locked_control|default": "cozy_feature:quick_item.tab_default",
+    "$unchecked_locked_hover_control|default": "cozy_feature:quick_item.tab_hover",
+    "$checked_locked_control|default": "cozy_feature:quick_item.tab_default",
+    "$checked_locked_hover_control|default": "cozy_feature:quick_item.tab_hover"
+  },
+
+  "tab_default": {
+    "type": "image",
+    "texture": "cozy/icon/quick_item/tab_default",
+    "size": ["100.0%", "88.0%"],
+    "controls": [
+      {
+        "icon": {
+          "type": "image",
+          "size": ["55.55555555555%", "60.0%"],
+          "texture": "('cozy/icon/quick_item/' + $icon)"
+        }
+      }
+    ]
+  },
+
+  "tab_hover": {
+    "type": "image",
+    "texture": "cozy/icon/quick_item/tab_hover",
+    "size": ["100.0%", "88.0%"],
+    "controls": [
+      {
+        "icon": {
+          "type": "image",
+          "size": ["55.55555555555%", "60.0%"],
+          "texture": "('cozy/icon/quick_item/' + $icon)"
+        }
+      }
+    ]
+  }
+}

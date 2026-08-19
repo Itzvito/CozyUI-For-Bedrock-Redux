@@ -1,0 +1,187 @@
+{
+  "namespace": "cozy_screen:chest",
+
+  "small_chest_screen_panel@cozy_screen:chest.screen_content": {
+    "$size": [176.0, 166.0]
+  },
+
+  "large_chest_screen_panel@cozy_screen:chest.screen_content": {
+    "$size": [176.0, 220.0]
+  },
+
+  "screen_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "layer": 10,
+    "controls": [
+      {
+        "screen_panel@cozy_common:container.screen_base": {
+          "$size": "$size",
+          "controls": [
+            {
+              "chest_stealer@cozy_feature:chest_stealer.tab_toggle_stack_panel_small": {
+                "ignored": "($container = large_chest)"
+              }
+            },
+            {
+              "large_tab@cozy_feature:chest_stealer.tab_toggle_stack_panel_large": {
+                "ignored": "(not ($container = large_chest))"
+              }
+            },
+            {
+              "container_exit_button@cozy_common:container.container_exit_button": {}
+            },
+            {
+              "chest_gird_panel@cozy_screen:chest.small_chest_gird_panel": {
+                "ignored": "(not (($container = small_chest) or ($container = shulker_box) or ($container = new_ender_chest)))",
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "offset": [0.0, "114514.1919810%cm"]
+              }
+            },
+            {
+              "ender_chest_gird_panel@cozy_screen:chest.small_chest_gird_panel": {
+                "ignored": "(not ($container = ender_chest))",
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "offset": [0.0, "114514.1919810%cm - 2.0px"]
+              }
+            },
+            {
+              "large_chest_gird_panel@cozy_screen:chest.large_chest_gird_panel": {
+                "ignored": "(not ($container = large_chest))",
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "offset": [0.0, "114514.1919810%cm"]
+              }
+            },
+            {
+              "hotbar_inventory_content@cozy_common:container.hotbar_inventory_content": {}
+            },
+            {
+              "container_utils_content@cozy_common:container.container_utils_content": {}
+            },
+            {
+              "tab_toggle_stack_panel@cozy_feature:quick_item.tab_toggle_stack_panel": {}
+            },
+            {
+              "gamepad_cursor@cozy_common:container.gamepad_cursor_button": {}
+            },
+            {
+              "flying_item_renderer@common.flying_item_renderer": {
+                "layer": 100
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+            }
+          ]
+        }
+      },
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "selected_item_details_factory@cozy_common:container.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      }
+    ]
+  },
+
+  "small_chest_gird_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": ["100.0%cm", "100.0%c"],
+    "controls": [
+      {
+        "line0@cozy_common:container.container_stack_panel_line": {}
+      },
+      {
+        "top@cozy_common:container.container_item_stack_template": {
+          "$index": 0,
+          "$item_collection_name": "container_items"
+        }
+      },
+      {
+        "line1@cozy_common:container.container_stack_panel_line": {}
+      },
+      {
+        "middle@cozy_common:container.container_item_stack_template": {
+          "$index": 9,
+          "$item_collection_name": "container_items"
+        }
+      },
+      {
+        "line2@cozy_common:container.container_stack_panel_line": {}
+      },
+      {
+        "bottom@cozy_common:container.container_item_stack_template": {
+          "$index": 18,
+          "$item_collection_name": "container_items"
+        }
+      }
+    ]
+  },
+
+  "large_chest_gird_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": ["100.0%cm", "100.0%c"],
+    "controls": [
+      {
+        "top1@cozy_common:container.container_item_stack_template": {
+          "$index": 0,
+          "$item_collection_name": "container_items"
+        }
+      },
+      // {"line1@cozy_common:container.container_stack_panel_line": {}},
+      {
+        "top0@cozy_common:container.container_item_stack_template": {
+          "$index": 9,
+          "$item_collection_name": "container_items"
+        }
+      },
+      {
+        "line2@cozy_common:container.container_stack_panel_line": {}
+      },
+      {
+        "middle1@cozy_common:container.container_item_stack_template": {
+          "$index": 18,
+          "$item_collection_name": "container_items"
+        }
+      },
+      {
+        "line3@cozy_common:container.container_stack_panel_line": {}
+      },
+      {
+        "middle0@cozy_common:container.container_item_stack_template": {
+          "$index": 27,
+          "$item_collection_name": "container_items"
+        }
+      },
+      {
+        "line4@cozy_common:container.container_stack_panel_line": {}
+      },
+      {
+        "bottom1@cozy_common:container.container_item_stack_template": {
+          "$index": 36,
+          "$item_collection_name": "container_items"
+        }
+      },
+      {
+        "line5@cozy_common:container.container_stack_panel_line": {}
+      },
+      {
+        "bottom0@cozy_common:container.container_item_stack_template": {
+          "$index": 45,
+          "$item_collection_name": "container_items"
+        }
+      }
+    ]
+  }
+}

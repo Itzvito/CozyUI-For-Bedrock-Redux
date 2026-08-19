@@ -1,0 +1,238 @@
+{
+  "namespace": "cozy_screen:progress",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "progress_bar_text": {
+          "type": "label",
+          "size": ["default", "default"],
+          "text": "#progress_text",
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "offset": [0.0, -3.0],
+          "bindings": [
+            {
+              "binding_name": "#progress_text"
+            }
+          ]
+        }
+      },
+      {
+        "loading_panel": {
+          "type": "image",
+          "size": [90.0, 90.0],
+          "color": [0.0, 0.0, 0.0],
+          "texture": "textures/ui/White",
+          "controls": [
+            {
+              "progress_title_text@progress.progress_title_text": {
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "offset": [0.0, -34.0]
+              }
+            },
+            {
+              "progress_bar_panel": {
+                "type": "image",
+                "texture": "textures/ui/White",
+                "color": [0.0, 0.0, 0.0],
+                "size": ["280.0%", 2.0],
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "offset": [0.0, -20.0],
+                "controls": [
+                  {
+                    "full_bar": {
+                      "type": "image",
+                      "clip_direction": "left",
+                      "clip_pixelperfect": false,
+                      "texture": "textures/ui/White",
+                      "color": [0.0, 0.847, 0.0],
+                      "bindings": [
+                        {
+                          "binding_name": "#loading_bar_total_amount",
+                          "binding_name_override": "#progress_bar_total_amount"
+                        },
+                        {
+                          "binding_name": "#loading_bar_current_amount",
+                          "binding_name_override": "#progress_bar_current_amount"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(1 - (#progress_bar_current_amount / #progress_bar_total_amount))",
+                          "target_property_name": "#clip_ratio"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "background_0@cozy_screen:progress.grey_background": {
+                "size": ["75.0%", "75.0%"],
+                "$value": 0.05
+              }
+            },
+            {
+              "background_1@cozy_screen:progress.grey_background": {
+                "size": ["100.0%", "100.0%"],
+                "bindings": [
+                  {
+                    "binding_name": "#loading_bar_total_amount",
+                    "binding_name_override": "#progress_bar_total_amount"
+                  },
+                  {
+                    "binding_name": "#loading_bar_current_amount",
+                    "binding_name_override": "#progress_bar_current_amount"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "((#progress_bar_current_amount / #progress_bar_total_amount) > 0.34)",
+                    "target_property_name": "#visible"
+                  }
+                ]
+              }
+            },
+            // 🐖🐖🐖
+            {
+              "full_0@cozy_screen:progress.progress_full": {
+                "size": ["5.0%", "5.0%"],
+                "$mix_value": 0.1,
+                "$max_value": 0.2
+              }
+            },
+            {
+              "full_1@cozy_screen:progress.progress_full": {
+                "size": ["10.0%", "10.0%"],
+                "$mix_value": 0.2,
+                "$max_value": 0.3
+              }
+            },
+            {
+              "full_2@cozy_screen:progress.progress_full": {
+                "size": ["15.0%", "15.0%"],
+                "$mix_value": 0.3,
+                "$max_value": 0.4
+              }
+            },
+            {
+              "full_3@cozy_screen:progress.progress_full": {
+                "size": ["20.0%", "20.0%"],
+                "$mix_value": 0.4,
+                "$max_value": 0.5
+              }
+            },
+            {
+              "full_4@cozy_screen:progress.progress_full": {
+                "size": ["25.0%", "25.0%"],
+                "$mix_value": 0.5,
+                "$max_value": 0.6
+              }
+            },
+            {
+              "full_5@cozy_screen:progress.progress_full": {
+                "size": ["30.0%", "30.0%"],
+                "$mix_value": 0.6,
+                "$max_value": 0.7
+              }
+            },
+            {
+              "full_6@cozy_screen:progress.progress_full": {
+                "size": ["35.0%", "35.0%"],
+                "$mix_value": 0.7,
+                "$max_value": 0.8
+              }
+            },
+            {
+              "full_7@cozy_screen:progress.progress_full": {
+                "size": ["40.0%", "40.0%"],
+                "$mix_value": 0.8,
+                "$max_value": 0.9
+              }
+            },
+            {
+              "full_8@cozy_screen:progress.progress_full": {
+                "size": ["45.0%", "45.0%"],
+                "$mix_value": 0.9,
+                "$max_value": 1.0
+              }
+            },
+            {
+              "full_9@cozy_screen:progress.progress_full": {
+                "size": ["50.0%", "50.0%"],
+                "$mix_value": 1.0,
+                "$max_value": 1.1
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "progress_full": {
+    "type": "image",
+    "layer": 5,
+    "color": [1.0, 1.0, 1.0],
+    "texture": "textures/ui/White",
+    "bindings": [
+      {
+        "binding_name": "#loading_bar_total_amount",
+        "binding_name_override": "#progress_bar_total_amount"
+      },
+      {
+        "binding_name": "#loading_bar_current_amount",
+        "binding_name_override": "#progress_bar_current_amount"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(((#progress_bar_current_amount / #progress_bar_total_amount) > $mix_value) and ((#progress_bar_current_amount / #progress_bar_total_amount) < $max_value))",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "highlight": {
+          "type": "image",
+          "layer": -1,
+          "texture": "textures/ui/White",
+          "color": [0.796, 0.796, 0.796],
+          "size": ["100.0% + 4.0px", "100.0% + 4.0px"]
+        }
+      }
+    ]
+  },
+
+  "grey_background": {
+    "type": "image",
+    "layer": 2,
+    "texture": "textures/ui/White",
+    "color": [0.325, 0.325, 0.325],
+    "bindings": [
+      {
+        "binding_name": "#loading_bar_total_amount",
+        "binding_name_override": "#progress_bar_total_amount"
+      },
+      {
+        "binding_name": "#loading_bar_current_amount",
+        "binding_name_override": "#progress_bar_current_amount"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "((#progress_bar_current_amount / #progress_bar_total_amount) > $value)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "screen_background": {
+    "type": "image",
+    "fill": true,
+    "alpha": 0.7613468,
+    "color": [0.0, 0.0, 0.0],
+    "texture": "textures/ui/White"
+  }
+}

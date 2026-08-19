@@ -1,0 +1,41 @@
+{
+  "world_loading_progress_screen": {
+    "variables": [
+      {
+        "requires": "$cozy_java_progress_screen",
+        "$screen_content": "cozy_screen:progress.screen_content",
+        "$screen_bg_content": "cozy_screen:progress.screen_background"
+      }
+    ]
+  },
+  
+  "realms_stories_enabled_loading_progress_screen": {
+    "variables": [
+      {
+        "requires": "$cozy_java_progress_screen",
+        "$screen_content": "cozy_screen:progress.screen_content",
+        "$screen_bg_content": "cozy_screen:progress.screen_background"
+      }
+    ]
+  },
+  
+  "world_saving_progress_screen": {
+    "variables": [
+      {
+        "requires": "$cozy_java_progress_screen",
+        "$screen_content": "cozy_screen:progress.screen_content",
+        "$screen_bg_content": "cozy_screen:progress.screen_background"
+      }
+    ]
+  },
+  
+  "world_convert_modal_progress_screen": {
+    "variables": [
+      {
+        "requires": "$cozy_java_progress_screen",
+        "$screen_content": "cozy_screen:progress.screen_content",
+        "$screen_bg_content": "cozy_screen:progress.screen_background"
+      }
+    ]
+  }
+}

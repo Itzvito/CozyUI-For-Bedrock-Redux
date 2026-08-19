@@ -1,0 +1,261 @@
+{
+  "namespace": "cozy_screen:anvil",
+
+  "screen_content": {
+    "type": "panel",
+    "size": ["100.0%", "100.0%"],
+    "layer": 10,
+    "controls": [
+      {
+        "screen_panel@cozy_common:container.screen_base": {
+          "$size": [176.0, 166.0],
+          "controls": [
+            {
+              "container_exit_button@cozy_common:container.container_exit_button": {}
+            },
+            {
+              "anvil_panel_top_half@cozy_screen:anvil.anvil_panel_top_half": {}
+            },
+            {
+              "hotbar_inventory_content@cozy_common:container.hotbar_inventory_content": {}
+            },
+            {
+              "container_utils_content@cozy_common:container.container_utils_content": {}
+            },
+            {
+              "tab_toggle_stack_panel@cozy_feature:quick_item.tab_toggle_stack_panel": {}
+            },
+            {
+              "gamepad_cursor@cozy_common:container.gamepad_cursor_button": {}
+            },
+            {
+              "flying_item_renderer@common.flying_item_renderer": {
+                "layer": 20
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+            }
+          ]
+        }
+      },
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "selected_item_details_factory@cozy_common:container.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      }
+    ]
+  },
+
+  "anvil_panel_top_half": {
+    "type": "panel",
+    "size": ["100.0%", "40.0%"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "controls": [
+      {
+        "text_edit_box@common.text_edit_box": {
+          "size": ["61.93181818181%", "18.07228915662%"],
+          "offset": ["-4.0%", "32.46084337349%"],
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "enabled_newline": true,
+          "property_bag": {
+            "#property_field": "#item_name"
+          },
+          "max_length": 10000,
+          "$text_background_default": "common.empty_panel",
+          "$text_background_hover": "common.empty_panel",
+          "$text_edit_binding_name": "#text_box_item_name",
+          "$text_edit_box_label_size": ["default", 10.0]
+        }
+      },
+      {
+        "items_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100.0%c", "100.0%cm"],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "offset": ["12.5%", "20.0%c"],
+          "controls": [
+            {
+              "input@cozy_common:container.container_item": {
+                "$size": [26.0, 26.0],
+                "$item_collection_name": "anvil_input_items"
+              }
+            },
+            {
+              "padding0": {
+                "type": "panel",
+                "size": "$size",
+                "$size": ["23.0px", 0.0],
+                "anims": ["@cozy_animations:container.container_animation_size_exit_push", "@cozy_animations:container.container_animation_size_exit_pop", "@cozy_animations:container.container_animation_size_enter_pop", "@cozy_animations:container.container_animation_size_enter_push"],
+                "animation_reset_name": "screen_animation_reset"
+              }
+            },
+            {
+              "material@cozy_common:container.container_item": {
+                "$size": [26.0, 26.0],
+                "$item_collection_name": "anvil_material_items"
+              }
+            },
+            {
+              "crossout_panel": {
+                "type": "panel",
+                "size": ["100.0%c + 14.0px", "100.0%sm"],
+                "controls": [
+                  {
+                    "crossout": {
+                      "type": "panel",
+                      "size": "$size",
+                      "$size": [18.0, 12.0],
+                      "layer": 12,
+                      "anims": ["@cozy_animations:container.container_animation_size_exit_push", "@cozy_animations:container.container_animation_size_exit_pop", "@cozy_animations:container.container_animation_size_enter_pop", "@cozy_animations:container.container_animation_size_enter_push"],
+                      "animation_reset_name": "screen_animation_reset",
+                      "controls": [
+                        {
+                          "image": {
+                            "type": "image",
+                            "texture": "cozy/sprites/anvil/crossout",
+                            "size": ["100.0%", "100.0%"],
+                            "bindings": [
+                              {
+                                "binding_name": "#cross_out_icon",
+                                "binding_name_override": "#visible"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "cost_label_0@cozy_screen:anvil.cost_label": {
+                            "color": "$anvil_cost_fail_text_color",
+                            "bindings": [
+                              {
+                                "binding_name": "#cost_text",
+                                "binding_name_override": "#text"
+                              },
+                              {
+                                "binding_name": "#cost_text_red",
+                                "binding_name_override": "#visible"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "cost_label_1@cozy_screen:anvil.cost_label": {
+                            "color": "$anvil_cost_success_text_color",
+                            "bindings": [
+                              {
+                                "binding_name": "#cost_text",
+                                "binding_name_override": "#text"
+                              },
+                              {
+                                "binding_name": "#cost_text_green",
+                                "binding_name_override": "#visible"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "result@cozy_common:container.container_item": {
+                "$size": [26.0, 26.0],
+                "$button_ref": "cozy_screen:anvil.anvil_output_slot_button",
+                "$item_collection_name": "anvil_result_items"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "cost_label": {
+    "type": "label",
+    "layer": 27,
+    "shadow": true,
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": [0.0, 10.0],
+    "color": "$anvil_cost_success_text_color",
+    "text": "#text"
+  },
+
+  "anvil_output_slot_button@cozy_common:container.container_slot_button_prototype": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.anvil_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.anvil_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_back",
+        "to_button_id": "button.anvil_take_all_place_all",
+        "mapping_type": "pressed",
+        "ignored": "(not $is_ps4)"
+      },
+      {
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.anvil_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.anvil_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_auto_place",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop",
+        "to_button_id": "button.drop_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop_all",
+        "to_button_id": "button.drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.anvil_coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.anvil_coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      {
+        "to_button_id": "button.container_slot_hovered",
+        "mapping_type": "pressed"
+      }
+    ]
+  }
+}

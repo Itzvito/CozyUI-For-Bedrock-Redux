@@ -1,0 +1,216 @@
+{
+  "namespace": "cozy_screen:hud",
+
+  "cozy_hud_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "hud_visible": {
+          "type": "panel",
+          "bindings": [
+            {
+              "binding_type": "global",
+              "binding_name": "#hud_visible",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "inventory_display_content@cozy_feature:inventory_display.inventory_display_content": {}
+            },
+            {
+              "item_name_hide_enchantment_factory@cozy_screen:hud.item_name_hide_enchantment_factory": {}
+            },
+            {
+              "cozy_hotbar_panel@hud.cozy_hotbar_panel": {}
+            },
+            {
+              "elipses_button_panel@cozy_screen:hud.elipses_button_panel": {}
+            },
+            {
+              "item_renderer_content@cozy_feature:item_renderer.item_renderer_content": {}
+            }
+          ]
+        }
+      },
+      {
+        "hud_no_visible": {
+          "type": "panel",
+          "controls": [
+            {
+              "hide_hud_button@cozy_feature:hide_hud.hide_hud_button": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "elipses_button_panel": {
+    "type": "input_panel",
+    "prevent_touch_input": true,
+    "size": [20.0, 20.0],
+    "layer": 4,
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": [100.0, 0.0],
+    "controls": [
+      {
+        "icon": {
+          "type": "image",
+          "size": [14.0, 14.0],
+          "texture": "cozy/icon/elipses",
+          "ignored": "$cozy_elipses_texture",
+          "bindings": [
+            {
+              "binding_type": "global",
+              "binding_name": "#inventory_touch_button",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "button@hud.hotbar_elipses_button": {
+          "$hotbar_elipses_button_size": [20.0, 22.0]
+        }
+      }
+    ]
+  },
+
+  "item_name_hide_enchantment_factory": {
+    "type": "panel",
+    "ignored": "(not $cozy_hide_enchant_text_in_tooltip)",
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "use_anchored_offset": true,
+    "property_bag": {
+      "#anchored_offset_value_y": 0.0
+    },
+    "bindings": [
+      {
+        "binding_name": "#exp_bar_and_text_offset_y",
+        "binding_name_override": "#anchored_offset_value_y"
+      }
+    ],
+    "controls": [
+      {
+        "item_text_factory": {
+          "size": [100.0, 10.0],
+          "type": "factory",
+          "control_ids": {
+            "item_text": "@cozy_screen:hud.item_name_hide_enchantment",
+            "jukebox_text": "@hud.jukebox_popup_text"
+          }
+        }
+      }
+    ]
+  },
+
+  "item_name_hide_enchantment": {
+    "type": "panel",
+    "size": ["100.0%cm", "100.0%cm"],
+    "$show_interact_padding|default": false,
+    "$show_survival_padding|default": false,
+    "$show_text_background|default": false,
+    "$text_color|default": "$tool_tip_text",
+    "$text_binding|default": "#item_text",
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "$wait_duration|default": 1,
+    "$destroy_id|default": "item_name_text",
+    "controls": [
+      {
+        "item_text_aligner": {
+          "type": "stack_panel",
+          "size": ["100.0%cm", "100.0%c"],
+          "controls": [
+            {
+              "item_text_control": {
+                "type": "panel",
+                "size": ["100.0%cm", "100.0%cm"],
+                "controls": [
+                  {
+                    "item_text_background": {
+                      "ignored": "(not $show_text_background)",
+                      "type": "image",
+                      "size": ["100.0%sm + 12.0px", "100.0%sm + 5.0px"],
+                      "texture": "textures/ui/hud_tip_text_background",
+                      "alpha": "@hud.anim_item_name_background_alpha_in"
+                    }
+                  },
+                  {
+                    "item_text_label": {
+                      "type": "panel",
+                      "size": ["100.0%c", 10.0],
+                      "clips_children": true,
+                      "layer": 31,
+                      "controls": [
+                        {
+                          "stackpanel": {
+                            "type": "stack_panel",
+                            "orientation": "horizontal",
+                            "anchor_from": "left_middle",
+                            "anchor_to": "left_middle",
+                            "size": ["100.0%c - 6.0px", 10.0],
+                            "clips_children": true,
+                            "layer": 31,
+                            "controls": [
+                              {
+                                "text": {
+                                  "type": "label",
+                                  "max_size": [100000.0, 10.0],
+                                  "text_alignment": "center",
+                                  "layer": 5,
+                                  "color": "$text_color",
+                                  "text": "#text",
+                                  "alpha": "@hud.anim_item_name_text_alpha_in",
+                                  "shadow": true,
+                                  "bindings": [
+                                    {
+                                      "binding_name": "$text_binding",
+                                      "binding_name_override": "#text"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "interact_padding@common.empty_panel": {
+                "visible": "$show_interact_padding",
+                "size": ["100.0%sm", 18.0],
+                "bindings": [
+                  {
+                    "binding_name": "#interact_visible",
+                    "binding_name_override": "#visible",
+                    "binding_condition": "always"
+                  }
+                ]
+              }
+            },
+            {
+              "survival_buffer@common.empty_panel": {
+                "visible": "$show_survival_padding",
+                "size": ["100.0%sm", 17.0],
+                "bindings": [
+                  {
+                    "binding_name": "#show_survival_ui",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

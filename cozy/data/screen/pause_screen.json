@@ -1,0 +1,172 @@
+{
+  "namespace": "cozy_screen:pause",
+
+  "screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "button_content@cozy_screen:pause.button_content": {}
+      }
+    ]
+  },
+
+  "button_content": {
+    "type": "stack_panel",
+    "size": ["100.0%cm", "100.0%c"],
+    "controls": [
+      {
+        "continue@cozy_screen:start.big_button_template": {
+          "$pressed_button_name": "button.menu_continue",
+          "$button_text": "menu.play"
+        }
+      },
+      {
+        "padding1": {
+          "type": "panel",
+          "size": [0.0, 3.0]
+        }
+      },
+      {
+        "sssh": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100.0%c", "100.0%cm"],
+          "ignored": "(not $cozy_pause_screenshot_button)",
+          "controls": [
+            {
+              "skin@cozy_screen:start.small_button_template": {
+                "$pressed_button_name": "button.to_profile_or_skins_screen",
+                "$button_text": "profileScreen.header",
+                "bindings": []
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [3.0, 3.0]
+              }
+            },
+            {
+              "screenshot@cozy_screen:start.small_button_template": {
+                "$pressed_button_name": "button.screenshot",
+                "$button_text": "store.resource.screenshots",
+                "bindings": [],
+                "button_mappings": [
+                  {
+                    "from_button_id": "button.controller_secondary_select",
+                    "to_button_id": "button.screenshot",
+                    "mapping_type": "global",
+                    "scope": "controller"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding2": {
+          "type": "panel",
+          "size": [0.0, 3.0],
+          "ignored": "(not $cozy_pause_screenshot_button)"
+        }
+      },
+      {
+        "scsh": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100.0%c", "100.0%cm"],
+          "controls": [
+            {
+              "store@cozy_screen:start.small_button_template": {
+                "$pressed_button_name": "button.menu_store",
+                "$button_text": "menu.store"
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [3.0, 3.0]
+              }
+            },
+            {
+              "achievements@cozy_screen:start.small_button_template": {
+                "$pressed_button_name": "button.menu_achievements",
+                "$button_text": "menu.achievements"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding3": {
+          "type": "panel",
+          "size": [0.0, 3.0]
+        }
+      },
+      {
+        "ejosn": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100.0%c", "100.0%cm"],
+          "ignored": "$cozy_pause_screenshot_button",
+          "controls": [
+            {
+              "skin@cozy_screen:start.big_button_template": {
+                "$pressed_button_name": "button.to_profile_or_skins_screen",
+                "$button_text": "profileScreen.header",
+                "bindings": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding5": {
+          "type": "panel",
+          "size": [0.0, 3.0],
+          "ignored": "$cozy_pause_screenshot_button"
+        }
+      },
+      {
+        "spsh": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100.0%c", "100.0%cm"],
+          "controls": [
+            {
+              "setting@cozy_screen:start.small_button_template": {
+                "$pressed_button_name": "button.menu_settings",
+                "$button_text": "menu.settings"
+              }
+            },
+            {
+              "padding3": {
+                "type": "panel",
+                "size": [3.0, 3.0]
+              }
+            },
+            {
+              "playlist@cozy_screen:start.small_button_template": {
+                "$pressed_button_name": "button.friends_drawer",
+                "$button_text": "key.playerlist"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding4": {
+          "type": "panel",
+          "size": [0.0, 3.0]
+        }
+      },
+      {
+        "quit@cozy_screen:start.big_button_template": {
+          "$pressed_button_name": "button.menu_quit",
+          "$button_text": "pauseScreen.quit"
+        }
+      }
+    ]
+  }
+}

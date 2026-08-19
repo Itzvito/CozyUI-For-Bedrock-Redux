@@ -1,0 +1,60 @@
+// 開啟: true  |  關閉: false 
+
+// anchor 可選值: 
+//   top_left      top_middle      top_right 
+//   left_middle     center      right_middle 
+//   bottom_left  bottom_middle  bottom_right 
+
+{
+  "$pack_name": "§fCozyUI §6Redux§f",  // 资源包名称 | Resource pack name (do not modify, otherwise pack_banner will break) 
+  "$pack_version": "1.1.4",  // 资源包版本 | Resource pack version 
+
+  "$cozy_global_font_type": "normal",  // 全局字体类型 | Global font type 
+  "$cozy_stack_count_label_font_type": "OldSmoothFont",  // 物品数量标签字体 | Item stack count label font type 
+  "$cozy_container_screen_bg_alpha": 0.37619432,  // 容器界面背景透明度 | Container screen background opacity 
+  "$cozy_chat_panel_slide_duration": 0.431367,  // 聊天面板滑动动画时长 | Chat panel slide animation duration 
+  "$cozy_inventory_stack_count_font_type": "OldSmoothFont",  // 背包物品数量字体 | Inventory item stack count font type 
+
+  "$cozy_java_progress_screen": false,  // Java 版加载界面 | Java progress screen 
+  "$cozy_button_hover_animation": true,  // 按钮悬停动画 | Button hover animation 
+  "$cozy_ender_chest_texture": true,  // 末影箱背景贴图 | New ender chest background texture 
+  "$cozy_pause_screenshot_button": false,  // 暂停界面截图按钮（仅旧版本可用）| Pause screen screenshot button (legacy versions only) 
+  "$cozy_title_screen_server_button": false,  // 主界面服务器按钮（旧版本可能失效）| Title screen server button (may break on older versions) 
+  "$cozy_tooltip_follow_cursor": false,  // 物品提示框跟随光标 | Item tooltip follows cursor 
+  "$cozy_xp_bar_gradient_animation": true,  // 经验条动态渐变贴图 | XP bar animated gradient texture 
+  "$cozy_hotbar_selector_gradient_animation": true,  // 快捷栏选择框动态渐变 | Hotbar selector animated gradient texture 
+  "$cozy_container_screen_bg": false,  // 开启容器界面背景 | Enable container screen background 
+  "$cozy_double_tap_close_container": false,  // 双击关闭容器界面 | Double-tap to close container screen 
+  "$cozy_chat_panel_slide_animation": true,  // 聊天面板滑动动画 | Chat panel slide animation 
+  "$cozy_creative_tab_item_texture": false,  // 创造背包 Tab 物品贴图渲染 | Creative inventory tab item texture rendering 
+  "$cozy_close_container_on_hurt": false,  // 受伤时关闭容器界面 | Close container screen when player takes damage 
+  "$cozy_hide_enchant_text_in_tooltip": false,  // 隐藏提示框中的附魔文字 | Hide enchantment text in HUD item tooltip 
+  "$cozy_low_perf_button_hover_animation": false,  // 按钮悬停动画（低性能模式）| Button hover animation (low performance mode) 
+  "$cozy_selected_item_gradient_animation": true,  // 物品选择框动态渐变 | Selected item highlight animated gradient 
+  "$cozy_container_scale_transition": true,  // 容器界面缩放过渡动画 | Container screen scale transition animation 
+  "$cozy_furnace_recipe_screen": false,  // 熔炉配方界面 (1.21.30以上可用) | Furnace recipe screen (1.21.30+) 
+  "$cozy_elipses_texture": false,  // 隐藏背包按钮贴图 | Hide elipses texture 
+
+  "$cozy_hide_hud_button": false,  // 一键隐藏 HUD 按钮 | One-click hide HUD button 
+  "$cozy_container_quick_move": false,  // 容器快速移动物品 | Container quick item transfer 
+  "$cozy_hud_inventory_display": false,  // HUD 背包显示 | Inventory display on HUD 
+  "$cozy_container_chest_transfer": false,  // 容器一键批量搬运 | Container one-click bulk transfer 
+  "$cozy_hud_clock": false,  // HUD 显示时钟 | Display clock on HUD 
+  "$cozy_hud_compass": false,  // HUD 显示指南针 | Display compass on HUD 
+
+  "$cozy_hud_inventory_anchor": "bottom_middle",  // HUD 背包显示锚点位置 | HUD inventory display anchor position 
+
+  "$cozy_button_sound_name": "beacon.activate",
+  "$cozy_button_sound_volume": 0.3,
+
+  // 不知道 | Unknown purpose 
+  "$cozy_aux_id_construction": 2949120,
+  "$cozy_aux_id_equipment": 22740992,
+  "$cozy_aux_id_miscellaneous": 22020096,
+  "$cozy_aux_id_nature": 131072,
+  "$cozy_aux_id_search": 27721728,
+  "$cozy_aux_id_inventory": 3538946,
+
+  "$cozy_aux_id_compass": 27721728,
+  "$cozy_aux_id_clock": 27852800
+}
